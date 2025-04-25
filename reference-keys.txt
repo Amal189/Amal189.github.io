@@ -3,3 +3,6 @@ cv
 vrij-ruimte
 vooruitkijken
 werkplan
+data-managment
+mapstructuur
+inhoud-readme.md
