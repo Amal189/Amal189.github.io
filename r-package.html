@@ -393,35 +393,45 @@ VignetteBuilder: knitr
 <p>De faithful dataset bevat meetwaarden van eruptieduur (in minuten) van geisers in Yellowstone.Hier passen we onze functies toe op de eruptions kolom om basisstatistieken te berekenen en een overzichtstabel te maken.</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="r-package.html#cb46-1" tabindex="-1"></a><span class="co"># Data uit R: geisers eruptie duur</span></span>
 <span id="cb46-2"><a href="r-package.html#cb46-2" tabindex="-1"></a></span>
-<span id="cb46-3"><a href="r-package.html#cb46-3" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;Amal189/ministate_package&quot;</span>)</span>
-<span id="cb46-4"><a href="r-package.html#cb46-4" tabindex="-1"></a></span>
-<span id="cb46-5"><a href="r-package.html#cb46-5" tabindex="-1"></a><span class="fu">library</span>(ministate)</span>
-<span id="cb46-6"><a href="r-package.html#cb46-6" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;faithful&quot;</span>)</span>
-<span id="cb46-7"><a href="r-package.html#cb46-7" tabindex="-1"></a>x <span class="ot">&lt;-</span> faithful<span class="sc">$</span>eruptions</span>
-<span id="cb46-8"><a href="r-package.html#cb46-8" tabindex="-1"></a></span>
-<span id="cb46-9"><a href="r-package.html#cb46-9" tabindex="-1"></a><span class="co"># Statistieken toepassen</span></span>
-<span id="cb46-10"><a href="r-package.html#cb46-10" tabindex="-1"></a><span class="fu">gem</span>(x)</span></code></pre></div>
+<span id="cb46-3"><a href="r-package.html#cb46-3" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;Amal189/ministate_package&quot;</span>, <span class="at">build_vignettes =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## ── R CMD build ─────────────────────────────────────────────────────────────────────
+##       ✔  checking for file &#39;C:\Users\Amal\AppData\Local\Temp\RtmpCKu7Pw\remotes3a5c44334a48\Amal189-ministate_package-bcb87e3/DESCRIPTION&#39;
+##       ─  preparing &#39;ministate&#39;:
+##    checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
+##       ─  installing the package to build vignettes
+##          creating vignettes ...     creating vignettes ...   ✔  creating vignettes (3.6s)
+##       ─  checking for LF line-endings in source and make files and shell scripts (468ms)
+##   ─  checking for empty or unneeded directories
+##   ─  building &#39;ministate_0.1.0.tar.gz&#39;
+##      
+## </code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="r-package.html#cb48-1" tabindex="-1"></a><span class="fu">library</span>(ministate)</span>
+<span id="cb48-2"><a href="r-package.html#cb48-2" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;faithful&quot;</span>)</span>
+<span id="cb48-3"><a href="r-package.html#cb48-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> faithful<span class="sc">$</span>eruptions</span>
+<span id="cb48-4"><a href="r-package.html#cb48-4" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="r-package.html#cb48-5" tabindex="-1"></a><span class="co"># Statistieken toepassen</span></span>
+<span id="cb48-6"><a href="r-package.html#cb48-6" tabindex="-1"></a><span class="fu">gem</span>(x)</span></code></pre></div>
 <pre><code>## [1] 3.487783</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="r-package.html#cb48-1" tabindex="-1"></a><span class="fu">med</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="r-package.html#cb50-1" tabindex="-1"></a><span class="fu">med</span>(x)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="r-package.html#cb50-1" tabindex="-1"></a><span class="fu">modus</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="r-package.html#cb52-1" tabindex="-1"></a><span class="fu">modus</span>(x)</span></code></pre></div>
 <pre><code>## [1] 1.867</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="r-package.html#cb52-1" tabindex="-1"></a><span class="fu">n</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="r-package.html#cb54-1" tabindex="-1"></a><span class="fu">n</span>(x)</span></code></pre></div>
 <pre><code>## [1] 272</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="r-package.html#cb54-1" tabindex="-1"></a><span class="fu">mini</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="r-package.html#cb56-1" tabindex="-1"></a><span class="fu">mini</span>(x)</span></code></pre></div>
 <pre><code>## [1] 1.6</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="r-package.html#cb56-1" tabindex="-1"></a><span class="fu">maxi</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="r-package.html#cb58-1" tabindex="-1"></a><span class="fu">maxi</span>(x)</span></code></pre></div>
 <pre><code>## [1] 5.1</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="r-package.html#cb58-1" tabindex="-1"></a><span class="fu">spreid</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="r-package.html#cb60-1" tabindex="-1"></a><span class="fu">spreid</span>(x)</span></code></pre></div>
 <pre><code>## [1] 3.5</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="r-package.html#cb60-1" tabindex="-1"></a><span class="fu">kwartielen</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="r-package.html#cb62-1" tabindex="-1"></a><span class="fu">kwartielen</span>(x)</span></code></pre></div>
 <pre><code>##     25%     75% 
 ## 2.16275 4.45425</code></pre>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="r-package.html#cb62-1" tabindex="-1"></a><span class="fu">iqr</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="r-package.html#cb64-1" tabindex="-1"></a><span class="fu">iqr</span>(x)</span></code></pre></div>
 <pre><code>## [1] 2.2915</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="r-package.html#cb64-1" tabindex="-1"></a><span class="fu">sdev</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="r-package.html#cb66-1" tabindex="-1"></a><span class="fu">sdev</span>(x)</span></code></pre></div>
 <pre><code>## [1] 1.141371</code></pre>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="r-package.html#cb66-1" tabindex="-1"></a><span class="fu">sam</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="r-package.html#cb68-1" tabindex="-1"></a><span class="fu">sam</span>(x)</span></code></pre></div>
 <div class="reactable html-widget html-fill-item" id="htmlwidget-4d6afffaca028b8154c5" style="width:auto;height:auto;"></div>
 <script type="application/json" data-for="htmlwidget-4d6afffaca028b8154c5">{"x":{"tag":{"name":"Reactable","attribs":{"data":{".rownames":["gem","med","modus","n","mini","maxi","spreid","kwartielen","iqr","sdev"],"functienaam":["gem","med","modus","n","mini","maxi","spreid","kwartielen","iqr","sdev"],"omschrijving":["Gemiddelde","Mediaan","Modus","Aantal niet-NA waarden","Minimumwaarde","Maximumwaarde","Verschil max - min","25% en 75% kwartiel","Interkwartielafstand","Standaarddeviatie"],"resultaat":["3.49","4","1.87","272","1.6","5.1","3.5","25%: 2.16; 75%: 4.45","2.29","1.14"]},"columns":[{"id":".rownames","name":"","type":"character","sortable":false,"filterable":false,"rowHeader":true},{"id":"functienaam","name":"functienaam","type":"character"},{"id":"omschrijving","name":"omschrijving","type":"character"},{"id":"resultaat","name":"resultaat","type":"character"}],"searchable":true,"highlight":true,"bordered":true,"striped":true,"dataKey":"d311b0ef1df829eac1e7d4ea382a8e3e"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 

@@ -295,53 +295,53 @@ div.csl-indent {
 <p>Deze aanpak maakt het mogelijk om snel en flexibel inzicht te krijgen in de ontwikkeling van de pandemie binnen een specifieke context.</p>
 <div id="stap-1-laad-de-benodigde-libraries" class="section level3 hasAnchor" number="9.1.1">
 <h3><span class="header-section-number">9.1.1</span> Stap 1: Laad de benodigde libraries<a href="geparameteriseerd-covid-19-europa-rapport.html#stap-1-laad-de-benodigde-libraries" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-1" tabindex="-1"></a><span class="co"># Laad de benodigde packages</span></span>
-<span id="cb67-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># bevat ggplot2 en dplyr</span></span>
-<span id="cb67-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-3" tabindex="-1"></a><span class="fu">library</span>(readxl)     <span class="co"># om Excel-bestanden te lezen</span></span>
-<span id="cb67-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-4" tabindex="-1"></a><span class="fu">library</span>(lubridate)  <span class="co"># voor datumverwerking indien nodig</span></span>
-<span id="cb67-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-5" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb67-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-6" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb67-7"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-7" tabindex="-1"></a><span class="fu">library</span>(utils)</span>
-<span id="cb67-8"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-8" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
-<span id="cb67-9"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-9" tabindex="-1"></a><span class="fu">library</span>(gifski)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-1" tabindex="-1"></a><span class="co"># Laad de benodigde packages</span></span>
+<span id="cb69-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># bevat ggplot2 en dplyr</span></span>
+<span id="cb69-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-3" tabindex="-1"></a><span class="fu">library</span>(readxl)     <span class="co"># om Excel-bestanden te lezen</span></span>
+<span id="cb69-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-4" tabindex="-1"></a><span class="fu">library</span>(lubridate)  <span class="co"># voor datumverwerking indien nodig</span></span>
+<span id="cb69-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-5" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb69-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-6" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb69-7"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-7" tabindex="-1"></a><span class="fu">library</span>(utils)</span>
+<span id="cb69-8"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-8" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
+<span id="cb69-9"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-9" tabindex="-1"></a><span class="fu">library</span>(gifski)</span></code></pre></div>
 </div>
 <div id="stap-2-download-en-verwerk-de-data" class="section level3 hasAnchor" number="9.1.2">
 <h3><span class="header-section-number">9.1.2</span> Stap 2: Download en verwerk de data<a href="geparameteriseerd-covid-19-europa-rapport.html#stap-2-download-en-verwerk-de-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>De gegevens die in dit hoofdstuk worden gebruikt, zijn afkomstig van het European Centre for Disease Prevention and Control (ECDC). Deze dataset bevat dagelijkse meldingen van COVID-19 besmettingen en sterfgevallen in Europese landen. Bij het inlezen van de data worden datums correct geïnterpreteerd met behulp van het lubridate-pakket.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb68-1" tabindex="-1"></a><span class="co"># Download en verwerk data</span></span>
-<span id="cb68-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb68-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://opendata.ecdc.europa.eu/covid19/nationalcasedeath_eueea_daily_ei/csv&quot;</span>, </span>
-<span id="cb68-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb68-3" tabindex="-1"></a>                <span class="at">na.strings =</span> <span class="st">&quot;&quot;</span>, </span>
-<span id="cb68-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb68-4" tabindex="-1"></a>                <span class="at">fileEncoding =</span> <span class="st">&quot;UTF-8-BOM&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb68-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb68-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">dmy</span>(dateRep),</span>
-<span id="cb68-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb68-6" tabindex="-1"></a>         <span class="at">month =</span> <span class="fu">month</span>(date),</span>
-<span id="cb68-7"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb68-7" tabindex="-1"></a>         <span class="at">year =</span> <span class="fu">year</span>(date))</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-1" tabindex="-1"></a><span class="co"># Download en verwerk data</span></span>
+<span id="cb70-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://opendata.ecdc.europa.eu/covid19/nationalcasedeath_eueea_daily_ei/csv&quot;</span>, </span>
+<span id="cb70-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-3" tabindex="-1"></a>                <span class="at">na.strings =</span> <span class="st">&quot;&quot;</span>, </span>
+<span id="cb70-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-4" tabindex="-1"></a>                <span class="at">fileEncoding =</span> <span class="st">&quot;UTF-8-BOM&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb70-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">dmy</span>(dateRep),</span>
+<span id="cb70-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-6" tabindex="-1"></a>         <span class="at">month =</span> <span class="fu">month</span>(date),</span>
+<span id="cb70-7"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-7" tabindex="-1"></a>         <span class="at">year =</span> <span class="fu">year</span>(date))</span></code></pre></div>
 </div>
 <div id="stap-3-foutafhandeling" class="section level3 hasAnchor" number="9.1.3">
 <h3><span class="header-section-number">9.1.3</span> Stap 3: Foutafhandeling<a href="geparameteriseerd-covid-19-europa-rapport.html#stap-3-foutafhandeling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Om te voorkomen dat het rapport fout loopt bij ongeldige invoer, zijn er controles ingebouwd. Deze controleren of het opgegeven land, jaar en de maanden daadwerkelijk voorkomen in de dataset.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-1" tabindex="-1"></a><span class="co"># Land-validatie</span></span>
-<span id="cb69-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>(params<span class="sc">$</span>land <span class="sc">%in%</span> <span class="fu">unique</span>(data<span class="sc">$</span>countriesAndTerritories))) {</span>
-<span id="cb69-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-3" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">&quot;Het gekozen land komt niet voor in de dataset.&quot;</span>)</span>
-<span id="cb69-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-4" tabindex="-1"></a>}</span>
-<span id="cb69-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-5" tabindex="-1"></a></span>
-<span id="cb69-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-6" tabindex="-1"></a><span class="co"># Jaar- en maand-validatie</span></span>
-<span id="cb69-7"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-7" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>(params<span class="sc">$</span>jaar <span class="sc">%in%</span> <span class="fu">unique</span>(data<span class="sc">$</span>year))) {</span>
-<span id="cb69-8"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-8" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">&quot;Het gekozen jaar komt niet voor in de dataset.&quot;</span>)</span>
-<span id="cb69-9"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-9" tabindex="-1"></a>}</span>
-<span id="cb69-10"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-10" tabindex="-1"></a></span>
-<span id="cb69-11"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-11" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">any</span>(params<span class="sc">$</span>maanden <span class="sc">%in%</span> <span class="fu">unique</span>(data<span class="sc">$</span>month))) {</span>
-<span id="cb69-12"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-12" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">&quot;Geen van de gekozen maanden komt voor in de dataset.&quot;</span>)</span>
-<span id="cb69-13"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-13" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-1" tabindex="-1"></a><span class="co"># Land-validatie</span></span>
+<span id="cb71-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>(params<span class="sc">$</span>land <span class="sc">%in%</span> <span class="fu">unique</span>(data<span class="sc">$</span>countriesAndTerritories))) {</span>
+<span id="cb71-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-3" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">&quot;Het gekozen land komt niet voor in de dataset.&quot;</span>)</span>
+<span id="cb71-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-4" tabindex="-1"></a>}</span>
+<span id="cb71-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-5" tabindex="-1"></a></span>
+<span id="cb71-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-6" tabindex="-1"></a><span class="co"># Jaar- en maand-validatie</span></span>
+<span id="cb71-7"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-7" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>(params<span class="sc">$</span>jaar <span class="sc">%in%</span> <span class="fu">unique</span>(data<span class="sc">$</span>year))) {</span>
+<span id="cb71-8"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-8" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">&quot;Het gekozen jaar komt niet voor in de dataset.&quot;</span>)</span>
+<span id="cb71-9"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-9" tabindex="-1"></a>}</span>
+<span id="cb71-10"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-10" tabindex="-1"></a></span>
+<span id="cb71-11"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-11" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">any</span>(params<span class="sc">$</span>maanden <span class="sc">%in%</span> <span class="fu">unique</span>(data<span class="sc">$</span>month))) {</span>
+<span id="cb71-12"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-12" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">&quot;Geen van de gekozen maanden komt voor in de dataset.&quot;</span>)</span>
+<span id="cb71-13"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-13" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="stap-4-filter-de-data" class="section level3 hasAnchor" number="9.1.4">
 <h3><span class="header-section-number">9.1.4</span> Stap 4: Filter de data<a href="geparameteriseerd-covid-19-europa-rapport.html#stap-4-filter-de-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>De data filteren op basis van het gekozen land, jaar en de geselecteerde maand(en).</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-1" tabindex="-1"></a><span class="co"># Filteren</span></span>
-<span id="cb70-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-2" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb70-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-3" tabindex="-1"></a>  <span class="fu">filter</span>(countriesAndTerritories <span class="sc">==</span> params<span class="sc">$</span>land,</span>
-<span id="cb70-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-4" tabindex="-1"></a>         year <span class="sc">==</span> params<span class="sc">$</span>jaar,</span>
-<span id="cb70-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-5" tabindex="-1"></a>         month <span class="sc">%in%</span> params<span class="sc">$</span>maanden) <span class="sc">%&gt;%</span></span>
-<span id="cb70-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-6" tabindex="-1"></a>  <span class="fu">arrange</span>(date)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-1" tabindex="-1"></a><span class="co"># Filteren</span></span>
+<span id="cb72-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-2" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb72-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-3" tabindex="-1"></a>  <span class="fu">filter</span>(countriesAndTerritories <span class="sc">==</span> params<span class="sc">$</span>land,</span>
+<span id="cb72-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-4" tabindex="-1"></a>         year <span class="sc">==</span> params<span class="sc">$</span>jaar,</span>
+<span id="cb72-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-5" tabindex="-1"></a>         month <span class="sc">%in%</span> params<span class="sc">$</span>maanden) <span class="sc">%&gt;%</span></span>
+<span id="cb72-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-6" tabindex="-1"></a>  <span class="fu">arrange</span>(date)</span></code></pre></div>
 </div>
 <div id="stap-5-het-analyseren-van-de-data" class="section level3 hasAnchor" number="9.1.5">
 <h3><span class="header-section-number">9.1.5</span> Stap 5: Het analyseren van de data<a href="geparameteriseerd-covid-19-europa-rapport.html#stap-5-het-analyseren-van-de-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -355,13 +355,13 @@ div.csl-indent {
 <li><strong>Jaar</strong>: 2020</li>
 <li><strong>Maand(en)</strong>: 5</li>
 </ul>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-1" tabindex="-1"></a><span class="co"># Maak een lijnplot van het aantal bevestigde gevallen per dag</span></span>
-<span id="cb71-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-2" tabindex="-1"></a><span class="fu">ggplot</span>(filtered_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> cases)) <span class="sc">+</span></span>
-<span id="cb71-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb71-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">&quot;COVID-19 gevallen in&quot;</span>, params<span class="sc">$</span>land, <span class="st">&quot;in&quot;</span>, params<span class="sc">$</span>jaar),</span>
-<span id="cb71-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-5" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">&quot;Maand(en):&quot;</span>, <span class="fu">paste</span>(params<span class="sc">$</span>maanden, <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>)),</span>
-<span id="cb71-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-6" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Datum&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Aantal gevallen&quot;</span>) <span class="sc">+</span></span>
-<span id="cb71-7"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-7" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb73-1" tabindex="-1"></a><span class="co"># Maak een lijnplot van het aantal bevestigde gevallen per dag</span></span>
+<span id="cb73-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb73-2" tabindex="-1"></a><span class="fu">ggplot</span>(filtered_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> cases)) <span class="sc">+</span></span>
+<span id="cb73-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb73-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb73-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb73-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">&quot;COVID-19 gevallen in&quot;</span>, params<span class="sc">$</span>land, <span class="st">&quot;in&quot;</span>, params<span class="sc">$</span>jaar),</span>
+<span id="cb73-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb73-5" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">&quot;Maand(en):&quot;</span>, <span class="fu">paste</span>(params<span class="sc">$</span>maanden, <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>)),</span>
+<span id="cb73-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb73-6" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Datum&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Aantal gevallen&quot;</span>) <span class="sc">+</span></span>
+<span id="cb73-7"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb73-7" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/COVID-1.png" width="672" /></p>
 <p>Een stijgende lijn kan wijzen op een uitbraak of onvoldoende maatregelen. Afnemende waarden kunnen wijzen op doeltreffende interventies of onderrapportage. Houd er rekening mee dat testen en rapportagebeleid per land kunnen verschillen.</p>
 </div>
@@ -375,20 +375,20 @@ div.csl-indent {
 <li><strong>Jaar</strong>: 2020</li>
 <li><strong>Maand(en)</strong>: 5</li>
 </ul>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-1" tabindex="-1"></a><span class="fu">ggplot</span>(filtered_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> deaths)) <span class="sc">+</span></span>
-<span id="cb72-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-2" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;#d62728&quot;</span>) <span class="sc">+</span></span>
-<span id="cb72-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">&quot;Dagelijkse COVID-19 sterfgevallen in&quot;</span>, params<span class="sc">$</span>land),</span>
-<span id="cb72-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-4" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">&quot;Jaar:&quot;</span>, params<span class="sc">$</span>jaar, <span class="st">&quot;| Maand(en):&quot;</span>, <span class="fu">paste</span>(params<span class="sc">$</span>maanden, <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>)),</span>
-<span id="cb72-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-5" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">&quot;Aantal sterfgevallen&quot;</span>) <span class="sc">+</span></span>
-<span id="cb72-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-6" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb72-7"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-7" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_labels =</span> <span class="st">&quot;%d %b&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb74-1" tabindex="-1"></a><span class="fu">ggplot</span>(filtered_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> deaths)) <span class="sc">+</span></span>
+<span id="cb74-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb74-2" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;#d62728&quot;</span>) <span class="sc">+</span></span>
+<span id="cb74-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb74-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">&quot;Dagelijkse COVID-19 sterfgevallen in&quot;</span>, params<span class="sc">$</span>land),</span>
+<span id="cb74-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb74-4" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">&quot;Jaar:&quot;</span>, params<span class="sc">$</span>jaar, <span class="st">&quot;| Maand(en):&quot;</span>, <span class="fu">paste</span>(params<span class="sc">$</span>maanden, <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>)),</span>
+<span id="cb74-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb74-5" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">&quot;Aantal sterfgevallen&quot;</span>) <span class="sc">+</span></span>
+<span id="cb74-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb74-6" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb74-7"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb74-7" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_labels =</span> <span class="st">&quot;%d %b&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/lijnplot-1.png" width="672" /></p>
 </div>
 <div id="beschikbaarheid-van-gegevens" class="section level4 hasAnchor" number="9.1.5.3">
 <h4><span class="header-section-number">9.1.5.3</span> Beschikbaarheid van gegevens<a href="geparameteriseerd-covid-19-europa-rapport.html#beschikbaarheid-van-gegevens" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Hier bij wordt aangegeven hoeveel dagen data beschikbaar is voor de gekozen periode</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb73-1" tabindex="-1"></a><span class="co"># Toon hoeveel dagen data beschikbaar is voor de gekozen periode</span></span>
-<span id="cb73-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb73-2" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;Aantal dagen met gegevens in deze selectie:&quot;</span>, <span class="fu">nrow</span>(filtered_data))</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb75-1" tabindex="-1"></a><span class="co"># Toon hoeveel dagen data beschikbaar is voor de gekozen periode</span></span>
+<span id="cb75-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb75-2" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;Aantal dagen met gegevens in deze selectie:&quot;</span>, <span class="fu">nrow</span>(filtered_data))</span></code></pre></div>
 <pre><code>## [1] &quot;Aantal dagen met gegevens in deze selectie: 31&quot;</code></pre>
 <hr />
 </div>
@@ -408,43 +408,43 @@ De antwoorden worden automatisch gegenereerd op basis van de data voor:</p>
 <hr />
 <div id="vraag-1-hoeveel-dagen-zijn-er-met-gegevens-in-deze-selectie" class="section level3 hasAnchor" number="9.2.1">
 <h3><span class="header-section-number">9.2.1</span> Vraag 1: Hoeveel dagen zijn er met gegevens in deze selectie?<a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-1-hoeveel-dagen-zijn-er-met-gegevens-in-deze-selectie" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb75-1" tabindex="-1"></a>aantal_dagen <span class="ot">&lt;-</span> <span class="fu">nrow</span>(filtered_data)</span>
-<span id="cb75-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb75-2" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;Aantal dagen met gegevens:&quot;</span>, aantal_dagen)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb77-1" tabindex="-1"></a>aantal_dagen <span class="ot">&lt;-</span> <span class="fu">nrow</span>(filtered_data)</span>
+<span id="cb77-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb77-2" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;Aantal dagen met gegevens:&quot;</span>, aantal_dagen)</span></code></pre></div>
 <pre><code>## [1] &quot;Aantal dagen met gegevens: 31&quot;</code></pre>
 <hr />
 </div>
 <div id="vraag-2-hoeveel-besmettingen-zijn-er-in-totaal-gemeld" class="section level3 hasAnchor" number="9.2.2">
 <h3><span class="header-section-number">9.2.2</span> Vraag 2: Hoeveel besmettingen zijn er in totaal gemeld?<a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-2-hoeveel-besmettingen-zijn-er-in-totaal-gemeld" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb77-1" tabindex="-1"></a>totaal_besmettingen <span class="ot">&lt;-</span> <span class="fu">sum</span>(filtered_data<span class="sc">$</span>cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb77-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb77-2" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;Totaal aantal bevestigde gevallen:&quot;</span>, totaal_besmettingen)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb79-1" tabindex="-1"></a>totaal_besmettingen <span class="ot">&lt;-</span> <span class="fu">sum</span>(filtered_data<span class="sc">$</span>cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb79-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb79-2" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;Totaal aantal bevestigde gevallen:&quot;</span>, totaal_besmettingen)</span></code></pre></div>
 <pre><code>## [1] &quot;Totaal aantal bevestigde gevallen: 7017&quot;</code></pre>
 <hr />
 </div>
 <div id="vraag-3-wat-was-het-hoogste-aantal-besmettingen-op-één-dag" class="section level3 hasAnchor" number="9.2.3">
 <h3><span class="header-section-number">9.2.3</span> Vraag 3: Wat was het hoogste aantal besmettingen op één dag?<a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-3-wat-was-het-hoogste-aantal-besmettingen-op-één-dag" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb79-1" tabindex="-1"></a>max_cases <span class="ot">&lt;-</span> <span class="fu">max</span>(filtered_data<span class="sc">$</span>cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb79-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb79-2" tabindex="-1"></a>max_datum <span class="ot">&lt;-</span> filtered_data<span class="sc">$</span>date[<span class="fu">which.max</span>(filtered_data<span class="sc">$</span>cases)]</span>
-<span id="cb79-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb79-3" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;Hoogste aantal besmettingen op één dag:&quot;</span>, max_cases, <span class="st">&quot;op&quot;</span>, <span class="fu">format</span>(max_datum, <span class="st">&quot;%d %B %Y&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb81-1" tabindex="-1"></a>max_cases <span class="ot">&lt;-</span> <span class="fu">max</span>(filtered_data<span class="sc">$</span>cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb81-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb81-2" tabindex="-1"></a>max_datum <span class="ot">&lt;-</span> filtered_data<span class="sc">$</span>date[<span class="fu">which.max</span>(filtered_data<span class="sc">$</span>cases)]</span>
+<span id="cb81-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb81-3" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;Hoogste aantal besmettingen op één dag:&quot;</span>, max_cases, <span class="st">&quot;op&quot;</span>, <span class="fu">format</span>(max_datum, <span class="st">&quot;%d %B %Y&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;Hoogste aantal besmettingen op één dag: 431 op 03 mei 2020&quot;</code></pre>
 <hr />
 </div>
 <div id="vraag-4-hoe-ziet-het-verloop-van-besmettingen-eruit" class="section level3 hasAnchor" number="9.2.4">
 <h3><span class="header-section-number">9.2.4</span> Vraag 4: Hoe ziet het verloop van besmettingen eruit?<a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-4-hoe-ziet-het-verloop-van-besmettingen-eruit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb81-1" tabindex="-1"></a><span class="fu">ggplot</span>(filtered_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> cases)) <span class="sc">+</span></span>
-<span id="cb81-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb81-2" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb81-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb81-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Besmettingen per dag&quot;</span>,</span>
-<span id="cb81-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb81-4" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Datum&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Aantal gevallen&quot;</span>) <span class="sc">+</span></span>
-<span id="cb81-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb81-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb83-1" tabindex="-1"></a><span class="fu">ggplot</span>(filtered_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> cases)) <span class="sc">+</span></span>
+<span id="cb83-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb83-2" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb83-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb83-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Besmettingen per dag&quot;</span>,</span>
+<span id="cb83-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb83-4" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Datum&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Aantal gevallen&quot;</span>) <span class="sc">+</span></span>
+<span id="cb83-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb83-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/quiz4-1.png" width="672" /></p>
 <hr />
 </div>
 <div id="vraag-5-hoe-ziet-het-verloop-van-sterfgevallen-eruit" class="section level3 hasAnchor" number="9.2.5">
 <h3><span class="header-section-number">9.2.5</span> Vraag 5: Hoe ziet het verloop van sterfgevallen eruit?<a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-5-hoe-ziet-het-verloop-van-sterfgevallen-eruit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb82-1" tabindex="-1"></a><span class="fu">ggplot</span>(filtered_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> deaths)) <span class="sc">+</span></span>
-<span id="cb82-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb82-2" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;#d62728&quot;</span>) <span class="sc">+</span></span>
-<span id="cb82-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb82-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Sterfgevallen per dag&quot;</span>,</span>
-<span id="cb82-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb82-4" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Datum&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Aantal overlijdens&quot;</span>) <span class="sc">+</span></span>
-<span id="cb82-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb82-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb84-1" tabindex="-1"></a><span class="fu">ggplot</span>(filtered_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> deaths)) <span class="sc">+</span></span>
+<span id="cb84-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb84-2" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;#d62728&quot;</span>) <span class="sc">+</span></span>
+<span id="cb84-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb84-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Sterfgevallen per dag&quot;</span>,</span>
+<span id="cb84-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb84-4" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Datum&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Aantal overlijdens&quot;</span>) <span class="sc">+</span></span>
+<span id="cb84-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb84-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/quiz5-1.png" width="672" /></p>
 
 </div>
