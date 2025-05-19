@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>9 Geparameteriseerd COVID-19 Europa rapport | _main.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="9 Geparameteriseerd COVID-19 Europa rapport | _main.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="9 Geparameteriseerd COVID-19 Europa rapport | _main.knit" />
+  
+  
+  
+
+<meta name="author" content="Jasmijnbloem" />
+
+
+<meta name="date" content="2025-05-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-package.html"/>
+<link rel="next" href="project-introductie.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/core-js-2.5.3/shim.min.js"></script>
+<script src="libs/react-18.2.0/react.min.js"></script>
+<script src="libs/react-18.2.0/react-dom.min.js"></script>
+<script src="libs/reactwidget-2.0.0/react-tools.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/reactable-0.4.4/reactable.css" rel="stylesheet" />
+<script src="libs/reactable-binding-0.4.4/reactable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welkom</a></li>
+<li class="chapter" data-level="2" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html"><i class="fa fa-check"></i><b>2</b> Curriculum Vitae</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html#curriculum-vitae-nederlands"><i class="fa fa-check"></i><b>2.1</b> Curriculum Vitae (Nederlands)</a></li>
+<li class="chapter" data-level="2.2" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html#curriculum-vitae-english-version"><i class="fa fa-check"></i><b>2.2</b> Curriculum Vitae (English Version)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html"><i class="fa fa-check"></i><b>3</b> Vooruikijken: Massaspectrometrie</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#toekomstbeeld-en-motivatie"><i class="fa fa-check"></i><b>3.1</b> 1. Toekomstbeeld en motivatie</a></li>
+<li class="chapter" data-level="3.2" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#planning"><i class="fa fa-check"></i><b>3.2</b> 2. Planning</a></li>
+<li class="chapter" data-level="3.3" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#uitwerking-voorbereiding"><i class="fa fa-check"></i><b>3.3</b> 3. Uitwerking (voorbereiding)</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#data"><i class="fa fa-check"></i><b>3.3.1</b> Data</a></li>
+<li class="chapter" data-level="3.3.2" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#analyseplan"><i class="fa fa-check"></i><b>3.3.2</b> Analyseplan</a></li>
+<li class="chapter" data-level="3.3.3" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#bewijs-van-verworven-kennis"><i class="fa fa-check"></i><b>3.3.3</b> Bewijs van verworven kennis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#bronnen"><i class="fa fa-check"></i><b>3.4</b> Bronnen</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="guerilla-analytics.html"><a href="guerilla-analytics.html"><i class="fa fa-check"></i><b>4</b> Guerilla analytics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="guerilla-analytics.html"><a href="guerilla-analytics.html#daur2_rnaseq"><i class="fa fa-check"></i><b>4.1</b> DAUR2_RNAseq</a></li>
+<li class="chapter" data-level="4.2" data-path="guerilla-analytics.html"><a href="guerilla-analytics.html#portfolio-van-jasmijnbloem"><i class="fa fa-check"></i><b>4.2</b> Portfolio van Jasmijnbloem</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html"><i class="fa fa-check"></i><b>5</b> Reproduceerbare Analyse 1</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#c.elegans-toxiciteitsexperiment"><i class="fa fa-check"></i><b>5.1</b> C.elegans toxiciteitsexperiment</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-1-data-opslaan-en-inlezen"><i class="fa fa-check"></i><b>5.1.1</b> Stap 1: Data opslaan en inlezen</a></li>
+<li class="chapter" data-level="5.1.2" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-2-inspecteren-van-de-datatypes"><i class="fa fa-check"></i><b>5.1.2</b> Stap 2: Inspecteren van de datatypes</a></li>
+<li class="chapter" data-level="5.1.3" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-3-datatype-corrigeren"><i class="fa fa-check"></i><b>5.1.3</b> Stap 3: Datatype corrigeren</a></li>
+<li class="chapter" data-level="5.1.4" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-4-scatter-plot-maken"><i class="fa fa-check"></i><b>5.1.4</b> Stap 4: Scatter plot maken</a></li>
+<li class="chapter" data-level="5.1.5" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-5-normalizeren-van-de-data-voor-de-negatieve-controle"><i class="fa fa-check"></i><b>5.1.5</b> Stap 5: Normalizeren van de data voor de negatieve controle</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stappenplan-voor-dose-response-analyse"><i class="fa fa-check"></i><b>5.2</b> Stappenplan voor dose-response analyse</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-1-installeer-en-laad-het-drc-pakket"><i class="fa fa-check"></i><b>5.2.1</b> Stap 1: Installeer en laad het drc-pakket</a></li>
+<li class="chapter" data-level="5.2.2" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-2-filter-de-data-verwijder-nas-en-incomplete-observaties"><i class="fa fa-check"></i><b>5.2.2</b> Stap 2: Filter de data (verwijder NA’s en incomplete observaties)</a></li>
+<li class="chapter" data-level="5.2.3" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-3-dosis-respons-modellen-fitten"><i class="fa fa-check"></i><b>5.2.3</b> Stap 3: Dosis-respons modellen fitten</a></li>
+<li class="chapter" data-level="5.2.4" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-4-bepaal-de-ic50-waarden"><i class="fa fa-check"></i><b>5.2.4</b> Stap 4: Bepaal de IC50-waarden</a></li>
+<li class="chapter" data-level="5.2.5" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-5-overzichtstabel-van-ic50-waarden"><i class="fa fa-check"></i><b>5.2.5</b> Stap 5: Overzichtstabel van IC50-waarden</a></li>
+<li class="chapter" data-level="5.2.6" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-6-dosis-respons-curves-combineren-in-één-figuur"><i class="fa fa-check"></i><b>5.2.6</b> Stap 6: Dosis-respons curves combineren in één figuur</a></li>
+<li class="chapter" data-level="5.2.7" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-7-eén-curve-per-stof-optioneel"><i class="fa fa-check"></i><b>5.2.7</b> Stap 7: Eén curve per stof (optioneel)</a></li>
+<li class="chapter" data-level="5.2.8" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#conclusie"><i class="fa fa-check"></i><b>5.2.8</b> conclusie</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#wetenschappelijke-referenties"><i class="fa fa-check"></i><b>5.3</b> Wetenschappelijke Referenties</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#ethanol-en-effecten-op-c.-elegans-voortplanting"><i class="fa fa-check"></i><b>5.3.1</b> 1. <strong>Ethanol en effecten op <em>C. elegans</em> voortplanting</strong>:</a></li>
+<li class="chapter" data-level="5.3.2" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#decaan-en-naphthaleen-als-toxische-stoffen"><i class="fa fa-check"></i><b>5.3.2</b> 2. <strong>Decaan en naphthaleen als toxische stoffen</strong>:</a></li>
+<li class="chapter" data-level="5.3.3" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#dosis-responscurves-en-ic50-waarde-bepaling"><i class="fa fa-check"></i><b>5.3.3</b> 3. <strong>Dosis-responscurves en IC50-waarde bepaling</strong>:</a></li>
+<li class="chapter" data-level="5.3.4" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#s-medium-als-controle-in-biologische-experimenten"><i class="fa fa-check"></i><b>5.3.4</b> 4. <strong>S-medium als controle in biologische experimenten</strong>:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="reproduceerbare-analyse-2.html"><a href="reproduceerbare-analyse-2.html"><i class="fa fa-check"></i><b>6</b> Reproduceerbare Analyse 2</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="reproduceerbare-analyse-2.html"><a href="reproduceerbare-analyse-2.html#artikel-beoordelen-op-reproduceerbaarheid"><i class="fa fa-check"></i><b>6.1</b> Artikel beoordelen op reproduceerbaarheid</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="structured-query-language.html"><a href="structured-query-language.html"><i class="fa fa-check"></i><b>7</b> Structured Query Language</a></li>
+<li class="chapter" data-level="8" data-path="r-package.html"><a href="r-package.html"><i class="fa fa-check"></i><b>8</b> R package</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="r-package.html"><a href="r-package.html#documentatie-van-mijn-r-package-ministate"><i class="fa fa-check"></i><b>8.1</b> Documentatie van mijn R package: ministate</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="r-package.html"><a href="r-package.html#inleiding"><i class="fa fa-check"></i><b>8.1.1</b> Inleiding</a></li>
+<li class="chapter" data-level="8.1.2" data-path="r-package.html"><a href="r-package.html#opzetten-van-het-project"><i class="fa fa-check"></i><b>8.1.2</b> 1. Opzetten van het project</a></li>
+<li class="chapter" data-level="8.1.3" data-path="r-package.html"><a href="r-package.html#toevoegen-van-functies"><i class="fa fa-check"></i><b>8.1.3</b> 2. Toevoegen van functies</a></li>
+<li class="chapter" data-level="8.1.4" data-path="r-package.html"><a href="r-package.html#testen-van-functies"><i class="fa fa-check"></i><b>8.1.4</b> 3. Testen van functies</a></li>
+<li class="chapter" data-level="8.1.5" data-path="r-package.html"><a href="r-package.html#vignette-aanmaken"><i class="fa fa-check"></i><b>8.1.5</b> 4. Vignette aanmaken</a></li>
+<li class="chapter" data-level="8.1.6" data-path="r-package.html"><a href="r-package.html#description-bestand"><i class="fa fa-check"></i><b>8.1.6</b> 5. DESCRIPTION bestand</a></li>
+<li class="chapter" data-level="8.1.7" data-path="r-package.html"><a href="r-package.html#package-bouwen-en-checken"><i class="fa fa-check"></i><b>8.1.7</b> 6. Package bouwen en checken</a></li>
+<li class="chapter" data-level="8.1.8" data-path="r-package.html"><a href="r-package.html#github-koppeling"><i class="fa fa-check"></i><b>8.1.8</b> 7. GitHub koppeling</a></li>
+<li class="chapter" data-level="8.1.9" data-path="r-package.html"><a href="r-package.html#conclusie-1"><i class="fa fa-check"></i><b>8.1.9</b> Conclusie</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="r-package.html"><a href="r-package.html#voorbeeld-voor-het-gebruiken-van-de-package"><i class="fa fa-check"></i><b>8.2</b> Voorbeeld voor het gebruiken van de package</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html"><i class="fa fa-check"></i><b>9</b> Geparameteriseerd COVID-19 Europa rapport</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#geparameteriseerd-data-verwerken"><i class="fa fa-check"></i><b>9.1</b> Geparameteriseerd data verwerken</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#stap-1-laad-de-benodigde-libraries"><i class="fa fa-check"></i><b>9.1.1</b> Stap 1: Laad de benodigde libraries</a></li>
+<li class="chapter" data-level="9.1.2" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#stap-2-download-en-verwerk-de-data"><i class="fa fa-check"></i><b>9.1.2</b> Stap 2: Download en verwerk de data</a></li>
+<li class="chapter" data-level="9.1.3" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#stap-3-foutafhandeling"><i class="fa fa-check"></i><b>9.1.3</b> Stap 3: Foutafhandeling</a></li>
+<li class="chapter" data-level="9.1.4" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#stap-4-filter-de-data"><i class="fa fa-check"></i><b>9.1.4</b> Stap 4: Filter de data</a></li>
+<li class="chapter" data-level="9.1.5" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#stap-5-het-analyseren-van-de-data"><i class="fa fa-check"></i><b>9.1.5</b> Stap 5: Het analyseren van de data</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#interactieve-quiz-wat-weet-je-van-de-covid-data"><i class="fa fa-check"></i><b>9.2</b> 🧠 Interactieve Quiz: Wat weet je van de COVID-data?</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-1-hoeveel-dagen-zijn-er-met-gegevens-in-deze-selectie"><i class="fa fa-check"></i><b>9.2.1</b> Vraag 1: Hoeveel dagen zijn er met gegevens in deze selectie?</a></li>
+<li class="chapter" data-level="9.2.2" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-2-hoeveel-besmettingen-zijn-er-in-totaal-gemeld"><i class="fa fa-check"></i><b>9.2.2</b> Vraag 2: Hoeveel besmettingen zijn er in totaal gemeld?</a></li>
+<li class="chapter" data-level="9.2.3" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-3-wat-was-het-hoogste-aantal-besmettingen-op-één-dag"><i class="fa fa-check"></i><b>9.2.3</b> Vraag 3: Wat was het hoogste aantal besmettingen op één dag?</a></li>
+<li class="chapter" data-level="9.2.4" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-4-hoe-ziet-het-verloop-van-besmettingen-eruit"><i class="fa fa-check"></i><b>9.2.4</b> Vraag 4: Hoe ziet het verloop van besmettingen eruit?</a></li>
+<li class="chapter" data-level="9.2.5" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-5-hoe-ziet-het-verloop-van-sterfgevallen-eruit"><i class="fa fa-check"></i><b>9.2.5</b> Vraag 5: Hoe ziet het verloop van sterfgevallen eruit?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="project-introductie.html"><a href="project-introductie.html"><i class="fa fa-check"></i><b>10</b> Project introductie</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="project-introductie.html"><a href="project-introductie.html#minion-sequencing"><i class="fa fa-check"></i><b>10.1</b> minION sequencing</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="referenties.html"><a href="referenties.html"><i class="fa fa-check"></i><b>11</b> Referenties</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="geparameteriseerd-covid-19-europa-rapport" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">9</span> Geparameteriseerd COVID-19 Europa rapport<a href="geparameteriseerd-covid-19-europa-rapport.html#geparameteriseerd-covid-19-europa-rapport" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="geparameteriseerd-data-verwerken" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Geparameteriseerd data verwerken<a href="geparameteriseerd-covid-19-europa-rapport.html#geparameteriseerd-data-verwerken" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In dit hoofdstuk wordt het verloop van de COVID-19-pandemie geanalyseerd op basis van gegevens uit Europa. Het rapport is <em>geparametriseerd</em>, wat betekent dat je zelf kunt kiezen voor welk land, welk jaar en welke maand(en) je de informatie wilt bekijken. Op basis van deze keuzes worden de relevante gegevens gefilterd en weergegeven in grafieken.</p>
+<p>Er worden twee kerncijfers gevisualiseerd:</p>
+<ul>
+<li>Het aantal bevestigde COVID-19 gevallen per dag.</li>
+<li>Het aantal COVID-19 gerelateerde sterfgevallen per dag.</li>
+</ul>
+<p>Deze aanpak maakt het mogelijk om snel en flexibel inzicht te krijgen in de ontwikkeling van de pandemie binnen een specifieke context.</p>
+<div id="stap-1-laad-de-benodigde-libraries" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Stap 1: Laad de benodigde libraries<a href="geparameteriseerd-covid-19-europa-rapport.html#stap-1-laad-de-benodigde-libraries" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-1" tabindex="-1"></a><span class="co"># Laad de benodigde packages</span></span>
+<span id="cb67-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># bevat ggplot2 en dplyr</span></span>
+<span id="cb67-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-3" tabindex="-1"></a><span class="fu">library</span>(readxl)     <span class="co"># om Excel-bestanden te lezen</span></span>
+<span id="cb67-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-4" tabindex="-1"></a><span class="fu">library</span>(lubridate)  <span class="co"># voor datumverwerking indien nodig</span></span>
+<span id="cb67-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-5" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb67-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-6" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb67-7"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-7" tabindex="-1"></a><span class="fu">library</span>(utils)</span>
+<span id="cb67-8"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-8" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
+<span id="cb67-9"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb67-9" tabindex="-1"></a><span class="fu">library</span>(gifski)</span></code></pre></div>
+</div>
+<div id="stap-2-download-en-verwerk-de-data" class="section level3 hasAnchor" number="9.1.2">
+<h3><span class="header-section-number">9.1.2</span> Stap 2: Download en verwerk de data<a href="geparameteriseerd-covid-19-europa-rapport.html#stap-2-download-en-verwerk-de-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>De gegevens die in dit hoofdstuk worden gebruikt, zijn afkomstig van het European Centre for Disease Prevention and Control (ECDC). Deze dataset bevat dagelijkse meldingen van COVID-19 besmettingen en sterfgevallen in Europese landen. Bij het inlezen van de data worden datums correct geïnterpreteerd met behulp van het lubridate-pakket.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb68-1" tabindex="-1"></a><span class="co"># Download en verwerk data</span></span>
+<span id="cb68-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb68-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://opendata.ecdc.europa.eu/covid19/nationalcasedeath_eueea_daily_ei/csv&quot;</span>, </span>
+<span id="cb68-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb68-3" tabindex="-1"></a>                <span class="at">na.strings =</span> <span class="st">&quot;&quot;</span>, </span>
+<span id="cb68-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb68-4" tabindex="-1"></a>                <span class="at">fileEncoding =</span> <span class="st">&quot;UTF-8-BOM&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb68-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb68-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">dmy</span>(dateRep),</span>
+<span id="cb68-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb68-6" tabindex="-1"></a>         <span class="at">month =</span> <span class="fu">month</span>(date),</span>
+<span id="cb68-7"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb68-7" tabindex="-1"></a>         <span class="at">year =</span> <span class="fu">year</span>(date))</span></code></pre></div>
+</div>
+<div id="stap-3-foutafhandeling" class="section level3 hasAnchor" number="9.1.3">
+<h3><span class="header-section-number">9.1.3</span> Stap 3: Foutafhandeling<a href="geparameteriseerd-covid-19-europa-rapport.html#stap-3-foutafhandeling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Om te voorkomen dat het rapport fout loopt bij ongeldige invoer, zijn er controles ingebouwd. Deze controleren of het opgegeven land, jaar en de maanden daadwerkelijk voorkomen in de dataset.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-1" tabindex="-1"></a><span class="co"># Land-validatie</span></span>
+<span id="cb69-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>(params<span class="sc">$</span>land <span class="sc">%in%</span> <span class="fu">unique</span>(data<span class="sc">$</span>countriesAndTerritories))) {</span>
+<span id="cb69-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-3" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">&quot;Het gekozen land komt niet voor in de dataset.&quot;</span>)</span>
+<span id="cb69-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-4" tabindex="-1"></a>}</span>
+<span id="cb69-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-5" tabindex="-1"></a></span>
+<span id="cb69-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-6" tabindex="-1"></a><span class="co"># Jaar- en maand-validatie</span></span>
+<span id="cb69-7"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-7" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>(params<span class="sc">$</span>jaar <span class="sc">%in%</span> <span class="fu">unique</span>(data<span class="sc">$</span>year))) {</span>
+<span id="cb69-8"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-8" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">&quot;Het gekozen jaar komt niet voor in de dataset.&quot;</span>)</span>
+<span id="cb69-9"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-9" tabindex="-1"></a>}</span>
+<span id="cb69-10"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-10" tabindex="-1"></a></span>
+<span id="cb69-11"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-11" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">any</span>(params<span class="sc">$</span>maanden <span class="sc">%in%</span> <span class="fu">unique</span>(data<span class="sc">$</span>month))) {</span>
+<span id="cb69-12"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-12" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">&quot;Geen van de gekozen maanden komt voor in de dataset.&quot;</span>)</span>
+<span id="cb69-13"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb69-13" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="stap-4-filter-de-data" class="section level3 hasAnchor" number="9.1.4">
+<h3><span class="header-section-number">9.1.4</span> Stap 4: Filter de data<a href="geparameteriseerd-covid-19-europa-rapport.html#stap-4-filter-de-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>De data filteren op basis van het gekozen land, jaar en de geselecteerde maand(en).</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-1" tabindex="-1"></a><span class="co"># Filteren</span></span>
+<span id="cb70-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-2" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb70-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-3" tabindex="-1"></a>  <span class="fu">filter</span>(countriesAndTerritories <span class="sc">==</span> params<span class="sc">$</span>land,</span>
+<span id="cb70-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-4" tabindex="-1"></a>         year <span class="sc">==</span> params<span class="sc">$</span>jaar,</span>
+<span id="cb70-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-5" tabindex="-1"></a>         month <span class="sc">%in%</span> params<span class="sc">$</span>maanden) <span class="sc">%&gt;%</span></span>
+<span id="cb70-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb70-6" tabindex="-1"></a>  <span class="fu">arrange</span>(date)</span></code></pre></div>
+</div>
+<div id="stap-5-het-analyseren-van-de-data" class="section level3 hasAnchor" number="9.1.5">
+<h3><span class="header-section-number">9.1.5</span> Stap 5: Het analyseren van de data<a href="geparameteriseerd-covid-19-europa-rapport.html#stap-5-het-analyseren-van-de-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>De volgende grafiek toont het aantal bevestigde COVID-19 gevallen per dag in de opgegeven periode.</p>
+<div id="aantal-covid-19-gevallen-per-dag" class="section level4 hasAnchor" number="9.1.5.1">
+<h4><span class="header-section-number">9.1.5.1</span> Aantal COVID-19 gevallen per dag<a href="geparameteriseerd-covid-19-europa-rapport.html#aantal-covid-19-gevallen-per-dag" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Analyse voor Romania - 2020</strong></p>
+<p>De volgende grafieken tonen de COVID-19 data voor:</p>
+<ul>
+<li><strong>Land</strong>: Romania</li>
+<li><strong>Jaar</strong>: 2020</li>
+<li><strong>Maand(en)</strong>: 5</li>
+</ul>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-1" tabindex="-1"></a><span class="co"># Maak een lijnplot van het aantal bevestigde gevallen per dag</span></span>
+<span id="cb71-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-2" tabindex="-1"></a><span class="fu">ggplot</span>(filtered_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> cases)) <span class="sc">+</span></span>
+<span id="cb71-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb71-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">&quot;COVID-19 gevallen in&quot;</span>, params<span class="sc">$</span>land, <span class="st">&quot;in&quot;</span>, params<span class="sc">$</span>jaar),</span>
+<span id="cb71-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-5" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">&quot;Maand(en):&quot;</span>, <span class="fu">paste</span>(params<span class="sc">$</span>maanden, <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>)),</span>
+<span id="cb71-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-6" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Datum&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Aantal gevallen&quot;</span>) <span class="sc">+</span></span>
+<span id="cb71-7"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb71-7" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/COVID-1.png" width="672" /></p>
+<p>Een stijgende lijn kan wijzen op een uitbraak of onvoldoende maatregelen. Afnemende waarden kunnen wijzen op doeltreffende interventies of onderrapportage. Houd er rekening mee dat testen en rapportagebeleid per land kunnen verschillen.</p>
+</div>
+<div id="aantal-covid-19-sterfgevallen-per-dag" class="section level4 hasAnchor" number="9.1.5.2">
+<h4><span class="header-section-number">9.1.5.2</span> Aantal COVID-19 sterfgevallen per dag<a href="geparameteriseerd-covid-19-europa-rapport.html#aantal-covid-19-sterfgevallen-per-dag" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>De volgende grafiek toont het aantal bevestigde COVID-19 sterfgevallen per dag in de opgegeven periode.’</p>
+<p><strong>Analyse voor Romania - 2020</strong></p>
+<p>De volgende grafieken tonen de COVID-19 data voor:</p>
+<ul>
+<li><strong>Land</strong>: Romania</li>
+<li><strong>Jaar</strong>: 2020</li>
+<li><strong>Maand(en)</strong>: 5</li>
+</ul>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-1" tabindex="-1"></a><span class="fu">ggplot</span>(filtered_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> deaths)) <span class="sc">+</span></span>
+<span id="cb72-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-2" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;#d62728&quot;</span>) <span class="sc">+</span></span>
+<span id="cb72-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">&quot;Dagelijkse COVID-19 sterfgevallen in&quot;</span>, params<span class="sc">$</span>land),</span>
+<span id="cb72-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-4" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">&quot;Jaar:&quot;</span>, params<span class="sc">$</span>jaar, <span class="st">&quot;| Maand(en):&quot;</span>, <span class="fu">paste</span>(params<span class="sc">$</span>maanden, <span class="at">collapse =</span> <span class="st">&quot;, &quot;</span>)),</span>
+<span id="cb72-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-5" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">&quot;Aantal sterfgevallen&quot;</span>) <span class="sc">+</span></span>
+<span id="cb72-6"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-6" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb72-7"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb72-7" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_labels =</span> <span class="st">&quot;%d %b&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/lijnplot-1.png" width="672" /></p>
+</div>
+<div id="beschikbaarheid-van-gegevens" class="section level4 hasAnchor" number="9.1.5.3">
+<h4><span class="header-section-number">9.1.5.3</span> Beschikbaarheid van gegevens<a href="geparameteriseerd-covid-19-europa-rapport.html#beschikbaarheid-van-gegevens" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Hier bij wordt aangegeven hoeveel dagen data beschikbaar is voor de gekozen periode</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb73-1" tabindex="-1"></a><span class="co"># Toon hoeveel dagen data beschikbaar is voor de gekozen periode</span></span>
+<span id="cb73-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb73-2" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;Aantal dagen met gegevens in deze selectie:&quot;</span>, <span class="fu">nrow</span>(filtered_data))</span></code></pre></div>
+<pre><code>## [1] &quot;Aantal dagen met gegevens in deze selectie: 31&quot;</code></pre>
+<hr />
+</div>
+</div>
+</div>
+<div id="interactieve-quiz-wat-weet-je-van-de-covid-data" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> 🧠 Interactieve Quiz: Wat weet je van de COVID-data?<a href="#interactieve-quiz-wat-weet-je-van-de-covid-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In dit onderdeel testen we je kennis van de geselecteerde gegevens.
+De antwoorden worden automatisch gegenereerd op basis van de data voor:</p>
+<ul>
+<li><strong>Land</strong>: Romania<br />
+</li>
+<li><strong>Jaar</strong>: 2020<br />
+</li>
+<li><strong>Maand(en)</strong>: 5</li>
+</ul>
+<hr />
+<div id="vraag-1-hoeveel-dagen-zijn-er-met-gegevens-in-deze-selectie" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> Vraag 1: Hoeveel dagen zijn er met gegevens in deze selectie?<a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-1-hoeveel-dagen-zijn-er-met-gegevens-in-deze-selectie" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb75-1" tabindex="-1"></a>aantal_dagen <span class="ot">&lt;-</span> <span class="fu">nrow</span>(filtered_data)</span>
+<span id="cb75-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb75-2" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;Aantal dagen met gegevens:&quot;</span>, aantal_dagen)</span></code></pre></div>
+<pre><code>## [1] &quot;Aantal dagen met gegevens: 31&quot;</code></pre>
+<hr />
+</div>
+<div id="vraag-2-hoeveel-besmettingen-zijn-er-in-totaal-gemeld" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Vraag 2: Hoeveel besmettingen zijn er in totaal gemeld?<a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-2-hoeveel-besmettingen-zijn-er-in-totaal-gemeld" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb77-1" tabindex="-1"></a>totaal_besmettingen <span class="ot">&lt;-</span> <span class="fu">sum</span>(filtered_data<span class="sc">$</span>cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb77-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb77-2" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;Totaal aantal bevestigde gevallen:&quot;</span>, totaal_besmettingen)</span></code></pre></div>
+<pre><code>## [1] &quot;Totaal aantal bevestigde gevallen: 7017&quot;</code></pre>
+<hr />
+</div>
+<div id="vraag-3-wat-was-het-hoogste-aantal-besmettingen-op-één-dag" class="section level3 hasAnchor" number="9.2.3">
+<h3><span class="header-section-number">9.2.3</span> Vraag 3: Wat was het hoogste aantal besmettingen op één dag?<a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-3-wat-was-het-hoogste-aantal-besmettingen-op-één-dag" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb79-1" tabindex="-1"></a>max_cases <span class="ot">&lt;-</span> <span class="fu">max</span>(filtered_data<span class="sc">$</span>cases, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb79-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb79-2" tabindex="-1"></a>max_datum <span class="ot">&lt;-</span> filtered_data<span class="sc">$</span>date[<span class="fu">which.max</span>(filtered_data<span class="sc">$</span>cases)]</span>
+<span id="cb79-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb79-3" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;Hoogste aantal besmettingen op één dag:&quot;</span>, max_cases, <span class="st">&quot;op&quot;</span>, <span class="fu">format</span>(max_datum, <span class="st">&quot;%d %B %Y&quot;</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;Hoogste aantal besmettingen op één dag: 431 op 03 mei 2020&quot;</code></pre>
+<hr />
+</div>
+<div id="vraag-4-hoe-ziet-het-verloop-van-besmettingen-eruit" class="section level3 hasAnchor" number="9.2.4">
+<h3><span class="header-section-number">9.2.4</span> Vraag 4: Hoe ziet het verloop van besmettingen eruit?<a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-4-hoe-ziet-het-verloop-van-besmettingen-eruit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb81-1" tabindex="-1"></a><span class="fu">ggplot</span>(filtered_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> cases)) <span class="sc">+</span></span>
+<span id="cb81-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb81-2" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb81-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb81-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Besmettingen per dag&quot;</span>,</span>
+<span id="cb81-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb81-4" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Datum&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Aantal gevallen&quot;</span>) <span class="sc">+</span></span>
+<span id="cb81-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb81-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/quiz4-1.png" width="672" /></p>
+<hr />
+</div>
+<div id="vraag-5-hoe-ziet-het-verloop-van-sterfgevallen-eruit" class="section level3 hasAnchor" number="9.2.5">
+<h3><span class="header-section-number">9.2.5</span> Vraag 5: Hoe ziet het verloop van sterfgevallen eruit?<a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-5-hoe-ziet-het-verloop-van-sterfgevallen-eruit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb82-1" tabindex="-1"></a><span class="fu">ggplot</span>(filtered_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> deaths)) <span class="sc">+</span></span>
+<span id="cb82-2"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb82-2" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;#d62728&quot;</span>) <span class="sc">+</span></span>
+<span id="cb82-3"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb82-3" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Sterfgevallen per dag&quot;</span>,</span>
+<span id="cb82-4"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb82-4" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Datum&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Aantal overlijdens&quot;</span>) <span class="sc">+</span></span>
+<span id="cb82-5"><a href="geparameteriseerd-covid-19-europa-rapport.html#cb82-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/quiz5-1.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-package.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="project-introductie.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

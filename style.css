@@ -1,0 +1,94 @@
+/* 📘 Achtergrondkleur van de sidebar */
+.book .book-summary {
+  background-color: #f3e5f5; /* zacht paars */
+}
+
+/* 🎯 Actieve hoofdstuk link */
+.book .book-summary .active > a,
+.book .book-summary .active > a:hover {
+  background-color: #f8bbd0; /* zacht roze */
+  color: #880e4f; /* diepe roze tekstkleur */
+  font-weight: bold;
+}
+
+/* 📄 Niet-actieve links */
+.book .book-summary a {
+  color: #4a148c; /* paars voor links */
+}
+
+.book .book-summary a:hover {
+  color: #ad1457; /* framboos roze bij hover */
+}
+
+
+
+/* === SIDEBAR (linkerkant) === */
+.book .book-summary {
+  background-color: #f3e5f5; /* lichtpaars */
+}
+
+.book .book-summary a {
+  color: #6a1b9a; /* paars voor links */
+}
+
+.book .book-summary a:hover {
+  color: #ad1457; /* framboos roze */
+}
+
+.book .book-summary .active > a,
+.book .book-summary .active > a:hover {
+  background-color: #f8bbd0; /* zacht roze */
+  color: #880e4f;
+  font-weight: bold;
+}
+
+/* === KOPPEN IN DE TEKST === */
+.book h1 {
+  color: #6a1b9a; /* donkerpaars */
+  border-bottom: 2px solid #ce93d8;
+}
+
+.book h2 {
+  color: #8e24aa;
+}
+
+.book h3 {
+  color: #ab47bc;
+}
+
+/* === TEKST === */
+.book p {
+  color: #333;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+/* === LINKS IN DE INHOUD === */
+.book a {
+  color: #ba68c8;
+}
+
+.book a:hover {
+  color: #ad1457;
+  text-decoration: underline;
+}
+
+/* === CODE BLOKKEN === */
+pre, code {
+  background-color: #fce4ec; /* licht roze */
+  color: #4a148c;
+  border-radius: 5px;
+  padding: 2px 4px;
+}
+
+/* === TABEL EN BLOCKQUOTE STIJLEN === */
+.book table {
+  border: 1px solid #ce93d8;
+}
+
+.book blockquote {
+  background-color: #f3e5f5;
+  border-left: 5px solid #ba68c8;
+  padding: 10px;
+  color: #4a148c;
+  font-style: italic;
+}

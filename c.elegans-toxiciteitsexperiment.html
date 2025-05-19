@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 C.elegans toxiciteitsexperiment | 07_R_package</title>
+  <meta name="description" content="5 C.elegans toxiciteitsexperiment | 07_R_package" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 C.elegans toxiciteitsexperiment | 07_R_package" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 C.elegans toxiciteitsexperiment | 07_R_package" />
+  
+  
+  
+
+<meta name="author" content="Jasmijnbloem" />
+
+
+<meta name="date" content="2025-04-16" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="guerilla-analytics.html"/>
+<link rel="next" href="structured-query-language.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welkom</a></li>
+<li class="chapter" data-level="2" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html"><i class="fa fa-check"></i><b>2</b> Curriculum Vitae</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html#curriculum-vitae-nederlands"><i class="fa fa-check"></i><b>2.1</b> Curriculum Vitae (Nederlands)</a></li>
+<li class="chapter" data-level="2.2" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html#curriculum-vitae-english-version"><i class="fa fa-check"></i><b>2.2</b> Curriculum Vitae (English Version)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html"><i class="fa fa-check"></i><b>3</b> Vooruikijken: Massaspectrometrie</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#toekomstbeeld-en-motivatie"><i class="fa fa-check"></i><b>3.1</b> 1. Toekomstbeeld en motivatie</a></li>
+<li class="chapter" data-level="3.2" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#planning"><i class="fa fa-check"></i><b>3.2</b> 2. Planning</a></li>
+<li class="chapter" data-level="3.3" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#uitwerking-voorbereiding"><i class="fa fa-check"></i><b>3.3</b> 3. Uitwerking (voorbereiding)</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#data"><i class="fa fa-check"></i><b>3.3.1</b> Data</a></li>
+<li class="chapter" data-level="3.3.2" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#analyseplan"><i class="fa fa-check"></i><b>3.3.2</b> Analyseplan</a></li>
+<li class="chapter" data-level="3.3.3" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#bewijs-van-verworven-kennis"><i class="fa fa-check"></i><b>3.3.3</b> Bewijs van verworven kennis</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#bronnen"><i class="fa fa-check"></i><b>3.4</b> Bronnen</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="guerilla-analytics.html"><a href="guerilla-analytics.html"><i class="fa fa-check"></i><b>4</b> Guerilla analytics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="guerilla-analytics.html"><a href="guerilla-analytics.html#daur2_rnaseq"><i class="fa fa-check"></i><b>4.1</b> DAUR2_RNAseq</a></li>
+<li class="chapter" data-level="4.2" data-path="guerilla-analytics.html"><a href="guerilla-analytics.html#portfolio-van-jasmijnbloem"><i class="fa fa-check"></i><b>4.2</b> Portfolio van Jasmijnbloem</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="c.elegans-toxiciteitsexperiment.html"><a href="c.elegans-toxiciteitsexperiment.html"><i class="fa fa-check"></i><b>5</b> C.elegans toxiciteitsexperiment</a></li>
+<li class="chapter" data-level="6" data-path="structured-query-language.html"><a href="structured-query-language.html"><i class="fa fa-check"></i><b>6</b> Structured Query Language</a></li>
+<li class="chapter" data-level="7" data-path="r-package.html"><a href="r-package.html"><i class="fa fa-check"></i><b>7</b> R package</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">07_R_package</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="c.elegans-toxiciteitsexperiment" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> C.elegans toxiciteitsexperiment<a href="c.elegans-toxiciteitsexperiment.html#c.elegans-toxiciteitsexperiment" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="guerilla-analytics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="structured-query-language.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
