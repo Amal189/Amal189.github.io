@@ -1,0 +1,10 @@
+---
+title: "06_artikel_beoordelen"
+author: "Jasmijnbloem"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# Reproduceerbare Analyse 2
+
+## Artikel beoordelen op reproduceerbaarheid

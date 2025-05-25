@@ -1,0 +1,162 @@
+---
+title: "Curriculum_Vitae"
+author: "Jasmijnbloem"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Curriculum Vitae 
+
+Dit document bevat het Curriculum Vitae (CV), opgesteld met RMarkdown. Het biedt een overzicht van de opleiding, werkervaring, vaardigheden (waaronder Data Science for Biology) en persoonlijke interesses. Het CV is bedoeld ter ondersteuning bij sollicitaties voor stageplekken of functies binnen de Life Sciences of bioinformatica.
+
+---
+
+## Curriculum Vitae (Nederlands)
+
+**Persoonlijke Gegevens**  
+**Naam:** [Jasmijbloem]  
+**E-mailadres:** [Jasmijn.bloem@example.com]  
+**Telefoonnummer:** [06-6666666]
+
+---
+
+
+__Opleiding__
+
+**Hogeschool Utrecht** — *BSc Biologie en Medisch Laboratoriumonderzoek*  
+*2022 – heden*  
+
+Derdejaarsstudent met een specialisatie in **Biomolecular Research**. 
+Gedurende de opleiding zijn zowel theoretische kennis als praktische vaardigheden opgedaan in laboratoriumtechnieken, bioinformatica en data-analyse.
+
+---
+
+__Vaardigheden en Ervaring__
+
+
+**Technische en Analytische Vaardigheden**  
+- **Eiwitonderzoek:** Fluorescentie, UV-VIS spectrofotometrie, Bradford- en BCA-assays  
+- **Eiwitverwerking:** SDS-PAGE, Western blotting, eiwitdigestie  
+- **Moleculaire technieken:** ELISA, (q)PCR, gele-elektroforese, chromatografie  
+- **Sequencing:** RNA-sequencing, MinION long-read sequencing, metagenomics  
+- **Data-analyse:** RStudio, SQL, data management, datavisualisatie  
+- **Programmeren:** Basis coderen, versiebeheer met GitHub  
+- **Bioinformatica:** Werken met proteomics tools  
+
+
+**Persoonlijke Vaardigheden**  
+- Enthousiast  
+- Leergierig  
+- Spontaan  
+- Hardwerkend  
+- Gemotiveerd
+
+
+
+---
+
+__Onderzoekservaring__
+
+Onderzoek naar het effect van protease op alfa-amylase 
+
+__Theoretische Basis__
+
+Sterke achtergrond in moleculaire biologie, celbiologie en biotechnologie, opgedaan via diverse vakken binnen de opleiding.
+
+
+
+---
+
+__Talen__
+
+- Nederlands
+- Engels
+- Arabisch
+
+---
+
+__Interesses__
+
+- Zwemmen  
+- Schrijven  
+- Lezen  
+
+---
+
+
+## Curriculum Vitae (English Version)
+
+**Personal Information**  
+**Name:** [Jasmijbloem]  
+**Email:** [Jasmijn.bloem@example.com]  
+**Phone:** [06-6666666]
+
+---
+
+__Education__
+
+**Hogeschool Utrecht (HU)** — *BSc in Biology and Medical Laboratory Research*  
+*2022 – present*  
+
+Third-year student specializing in **Biomolecular Research**. Throughout the program, both theoretical knowledge and practical skills have been developed in lab techniques, bioinformatics, and data analysis.
+
+---
+
+__Skills and Experience__
+
+**Technical and Analytical Skills**  
+- **Protein Research:** Fluorescence, UV-VIS spectrophotometry, Bradford and BCA assays  
+- **Protein Processing:** SDS-PAGE, Western blotting, protein digestion  
+- **Molecular Techniques:** ELISA, (q)PCR, gel electrophoresis, chromatography  
+- **Sequencing:** RNA sequencing, MinION long-read sequencing, metagenomics  
+- **Data Analysis:** RStudio, SQL, data management, data visualization  
+- **Programming:** Basic coding, version control with GitHub  
+- **Bioinformatics:** Proteomics tools  
+
+**Personal Skills**  
+- Enthusiastic  
+- Eager to learn  
+- Friendly and approachable  
+- Hardworking  
+- Highly motivated
+
+
+
+---
+
+__Research Experience__
+
+Research on the effect of protease on alpha-amylase 
+
+__Theoretical Background__
+
+Strong foundation in molecular biology, cell biology, and biotechnology, developed through coursework.
+
+---
+
+__Languages__
+
+- Dutch
+- English 
+- Arabic  
+
+---
+
+__Interests__
+
+- Swimming  
+- Writing  
+- Reading  
+
+---
+
+__Credits__
+
+Dit CV is opgesteld in RMarkdown met behulp van ideeën uit het `rmarkdown`-pakket van RStudio en voorbeelden van [r-cv](https://github.com/mitchelloharawild/vitae) 
+
+

@@ -1,0 +1,183 @@
+---
+title: "08_R_package"
+author: "Jasmijnbloem"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# R package
+
+
+## Documentatie van mijn R package: ministate
+
+
+### Inleiding
+
+Dit document beschrijft de stappen die ik heb gevolgd om mijn eigen R package `ministate` te maken. Het doel van dit package is om eenvoudige statistische functies te bundelen in een handig en herbruikbaar pakket. Het package bevat functies voor statistische berekeningen, zoals gemiddelde, mediaan, modus, standaarddeviatie, en een overzichtelijke samenvattingstabel.
+
+### 1. Opzetten van het project
+
+Ik heb in RStudio een nieuw R Project aangemaakt:
+
+```r
+usethis::create_package("ministate")
+```
+
+Daarna heb ik Git gekoppeld aan mijn project:
+
+```r
+usethis::use_git()
+usethis::use_github()
+```
+
+Op GitHub is de repository te vinden via:  
+[https://github.com/Amal189/ministate_package](https://github.com/Amal189/ministate_package)
+
+### 2. Toevoegen van functies
+
+Ik heb 11 functies toegevoegd. Elke functie bevindt zich in een aparte `.R` file in de `R/` map. De functies zijn voorzien van `roxygen2` documentatie.
+
+#### Voorbeeld: gem.R
+
+```r
+#' Bereken het gemiddelde
+#'
+#' @param x Een numerieke vector
+#' @return Het gemiddelde
+#' @export
+gem <- function(x) {
+  mean(x, na.rm = TRUE)
+}
+
+```
+
+
+Na het schrijven van de functies heb ik de documentatie gegenereerd met:
+
+```r
+devtools::document()
+```
+
+### 3. Testen van functies
+
+De functies zijn getest binnen RStudio:
+
+```r
+x <- c(1, 2, 2, 3, NA)
+
+# Basisstatistieken
+gem(x)
+med(x)
+modus(x)
+n(x)
+mini(x)
+maxi(x)
+spreid(x)
+kwartielen(x)
+iqr(x)
+sdev(x)
+
+sam(x)
+```
+
+### 4. Vignette aanmaken
+
+Een vignette is een handleiding voor gebruikers. Deze heb ik aangemaakt met:
+
+```r
+usethis::use_vignette("ministate")
+```
+
+Ik kan het vignette openen met:
+
+```r
+browseVignettes("ministate")
+```
+
+### 5. DESCRIPTION bestand
+
+Mijn `DESCRIPTION` bestand bevat de volgende informatie:
+
+```
+Package: ministate
+Type: Package
+Title: Minianalyse van statistische functies
+Version: 0.1.0
+Authors@R: 
+    person(
+      given = "Amal",
+      email = "Jasmijnbloem@gmail.com",
+      role = c("aut", "cre"))
+Description: functies voor statistische berekeningen, zoals gemiddelde, mediaan, modus, standaarddeviatie, en een overzichtelijke samenvattingstabel.
+License: MIT + file LICENSE
+Encoding: UTF-8
+RoxygenNote: 7.3.2
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+
+```
+
+### 6. Package bouwen en checken
+
+Voor het bouwen en controleren van mijn package gebruik ik:
+
+```r
+devtools::build()
+devtools::check()
+```
+
+Let op: op Windows is het belangrijk dat `Rtools` is geïnstalleerd:
+
+> Download hier: https://cran.r-project.org/bin/windows/Rtools/
+
+### 7. GitHub koppeling
+
+De koppeling met GitHub is gelukt via:
+
+```bash
+git init
+git remote add origin https://github.com/Amal189/ministat_package.git
+git push -u origin master
+```
+
+Daarna zijn alle bestanden gecommit en gepusht naar GitHub.
+
+### Conclusie
+
+Met dit project heb ik geleerd hoe ik een R package opzet, functies schrijf en documenteer, een vignette toevoeg, en het geheel beschikbaar maak via GitHub. Dit zijn waardevolle vaardigheden voor het delen van analyses en functies in de data science en bioinformatica wereld.
+
+
+
+
+
+
+## Voorbeeld voor het gebruiken van de package
+
+De faithful dataset bevat meetwaarden van eruptieduur (in minuten) van geisers in Yellowstone.Hier passen we onze functies toe op de eruptions kolom om basisstatistieken te berekenen en een overzichtstabel te maken.
+
+```{r faithful, include=TRUE}
+# Data uit R: geisers eruptie duur
+
+devtools::install_github("Amal189/ministate_package", build_vignettes = TRUE)
+
+library(ministate)
+data("faithful")
+x <- faithful$eruptions
+
+# Statistieken toepassen
+gem(x)
+med(x)
+modus(x)
+n(x)
+mini(x)
+maxi(x)
+spreid(x)
+kwartielen(x)
+iqr(x)
+sdev(x)
+
+sam(x)
+
+```

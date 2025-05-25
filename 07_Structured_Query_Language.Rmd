@@ -1,0 +1,281 @@
+---
+title: "07_Structured_Query_Language."
+author: "Jasmijnbloem"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# Structured Query Language
+
+In deze opdracht wordt gewerkt met drie verschillende datasets: gegevens over dengue, flu en de gapminder data met informatie over landen en economie.
+
+Het doel is om deze data eerst schoon te maken en ervoor te zorgen dat de landen en datums in alle datasets hetzelfde zijn. Daarna worden de datasets samengevoegd in een database met behulp van SQL.
+
+Met SQL wordt de data bekeken en gecombineerd, zodat er nieuwe verbanden te zien zijn. De resultaten worden vervolgens weer ingeladen in R om er grafieken van te maken.
+
+Deze opdracht laat zien hoe ik de verschillende databronnen kan samenbrengen en analyseren met behulp van R en SQL.
+
+
+
+## Stap 1: Laad de libraries
+
+De volgende packages zijn nodig:
+
+- `readr`: Om csv-bestanden makkelijk in te lezen.
+- `dslabs`: Bevat de gapminder dataset.
+- `stringr`: Voor stringmanipulatie, zoals het aanpassen van tekstformaten.
+- `dplyr`: Voor het manipuleren en schoonmaken van data
+- `tidyr`: Data netjes maken:
+`gather()` (lange data), `spread()` (brede data), `separate()` (kolommen splitsen)
+
+- `lubridate`: Datums eenvoudig verwerken:
+`year()`, `month()`, `day()` (datumdelen extraheren)
+`ymd()` (tekst → datum converteren)
+
+- `ggplot2`: voor het maken van grafieken in R
+- `rnaturalearth`: voor het ophalen van wereldkaarten en geografische data
+- `rnaturalearthdata` : bevat geografische datasets die door rnaturalearth gebruikt worden
+- `sf`: werkt met 'simple features' voor het manipuleren en visualiseren van ruimtelijke/geografische data
+
+
+```{r packagess, include=TRUE}
+
+library(readr)
+library(dslabs) 
+library(stringr) 
+library(dplyr) 
+library(tidyr) 
+library(lubridate) 
+library(ggplot2) 
+library(rnaturalearth)
+library(rnaturalearthdata) 
+library(sf)  
+
+```
+
+
+## Stap 2: Data inlezen in R
+
+De datasets wordt eerst ingelezen met behulp van de functie `read_csv()` van het `readr-package`. De dengue- en flu-data bevatten enkele regels met metadata bovenaan, daarom wordt er geskippt (skip = 11) om direct bij de relevante data te beginnen. De `gapminder data` wordt geladen vanuit het `dslabs package`.
+
+```{r lees, inculde=TRUE}
+
+# Dengue data inlezen
+dengue <- read_csv("https://raw.githubusercontent.com/DataScienceILC/tlsc-dsfb26v-20_workflows/main/data/dengue_data.csv",
+                   skip = 11)
+
+# Flu data inlezen
+flu <- read_csv("https://raw.githubusercontent.com/DataScienceILC/tlsc-dsfb26v-20_workflows/main/data/flu_data.csv",
+                skip = 11)
+
+# Gapminder data inlezen vanuit dslabs package
+data("gapminder")
+
+# Bekijk eerste paar rijen van elke dataset
+head(dengue)
+head(flu)
+head(gapminder)
+```
+
+
+## Stap 3: Data controleren.
+Controle of de data in tidy format staat (elke variabele een kolom, elke observatie een rij, elke waarde een cel).
+
+```{r tidyyy, include=TRUE}
+
+# Controleer structuur van de datasets
+str(dengue)
+str(flu)
+str(gapminder)
+
+# Controleer of kolomnamen en datatypes kloppen
+glimpse(dengue)
+glimpse(flu)
+glimpse(gapminder)
+
+```
+
+__Stap 4 t/m 6: Data transformeren, harmoniseren en samenvoegen__
+
+In deze stappen worden de `flu`- en `dengue`-datasets naar een *tidy* formaat getransformeerd, de landenamen geharmoniseerd zodat ze overeenkomen met die van de `gapminder`-dataset, en alle gegevens samengevoed.
+
+## Stap 4: Zet de data in tidy format
+
+De oorspronkelijke data bevat landen als kolomnamen (wide format).  `pivot_longer()` wordt gebruikt om de data om te zetten naar long format:
+
+```{r tidyyyy, include=TRUE}
+flu_tidy <- flu %>% 
+  pivot_longer(-Date, names_to = "Country", values_to = "Flu_rate")
+
+dengue_tidy <- dengue %>% 
+  pivot_longer(-Date, names_to = "Country", values_to = "Dengue_rate")
+```
+
+
+## Stap 5: Harmoniseer landenamen
+De landenamen in de flu- en dengue-datasets moeten overeenkomen met de namen in gapminder. Underscores worden door spaties vervangen en in specifieke namen gecorrigeerd:
+
+```{r hara, include=TRUE}
+flu_tidy <- flu_tidy %>%
+  mutate(Country = case_when(
+    Country == "United_States" ~ "United States",
+    Country == "South_Africa" ~ "South Africa",
+    TRUE ~ str_replace_all(Country, "_", " ")
+  ))
+
+dengue_tidy <- dengue_tidy %>%
+  mutate(Country = case_when(
+    Country == "United_States" ~ "United States",
+    Country == "South_Africa" ~ "South Africa",
+    TRUE ~ str_replace_all(Country, "_", " ")
+  ))
+
+```
+
+
+## Stap 6: Voeg datasets samen
+Er wordt jaarkolom toegevoed, het jaargemiddelde per land berekend en deze gekoppeld  aan gapminder met `left_join()`:
+
+```{r voeg, include=TRUE}
+flu_tidy <- flu_tidy %>% mutate(Year = year(Date))
+dengue_tidy <- dengue_tidy %>% mutate(Year = year(Date))
+
+flu_avg <- flu_tidy %>%
+  group_by(Country, Year) %>%
+  summarise(Mean_Flu = mean(Flu_rate, na.rm = TRUE))
+
+dengue_avg <- dengue_tidy %>%
+  group_by(Country, Year) %>%
+  summarise(Mean_Dengue = mean(Dengue_rate, na.rm = TRUE))
+
+combined_data <- gapminder %>%
+  left_join(flu_avg, by = c("country" = "Country", "year" = "Year")) %>%
+  left_join(dengue_avg, by = c("country" = "Country", "year" = "Year"))
+```
+
+De `combined_data` dataset bevat nu voor elk land en jaar gegevens over bevolkingsomvang, levensverwachting, inkomen per hoofd én ziektelast door griep en dengue
+
+
+## Stap 7: Zet data in een SQL-database
+Schrijf de datasets weg naar CSV’s en gebruik DBeaver of een ander tool om deze in een PostgreSQL database te laden.
+
+```{r csv, include=TRUE}
+write_csv(dengue_avg, "data/dengue_avg.csv")
+write_csv(flu_avg, "data/flu_avg.csv")
+write_csv(gapminder, "data/gapminder.csv", na = "")
+
+```
+
+
+## Stap 8: Importeer de CSV-bestanden in DBeaver
+
+1. Open DBeaver.
+2. Maak een nieuwe PostgreSQL database aan met de naam `workflowsdb`.
+3. Importeer de bestanden `flu_long.csv`, `dengue_long.csv` en `gapminder_clean.csv` als drie aparte tabellen:
+
+- `flu`
+- `dengue`
+- `gapminder`
+
+
+
+## Stap 9: Inspecteer de tabellen met SQL queries
+
+```sql
+-- Voorbeeldquery
+SELECT * FROM flu LIMIT 10;
+SELECT DISTINCT country FROM dengue;
+SELECT COUNT(*) FROM gapminder WHERE year = 2003;
+```
+
+## Stap 8: Voer een join uit met SQL
+
+Nu is het mogelijk om een JOIN uit te voeren om de tabellen te combineren. Bijvoorbeeld: combineer alle drie de tabellen op country en year.
+
+```sql
+SELECT 
+  g.country,
+  g.year,
+  g.life_expectancy,
+  g.gdp,
+  g.population,
+  f.mean_flu,
+  d.mean_dengue
+FROM gapminder g
+LEFT JOIN flu f
+  ON g.country = f.country AND g.year = f."Year"
+LEFT JOIN denguee d 
+  ON g.country = d.country AND g.year = d."Year";
+ ``` 
+
+
+
+## Stap 8: Inlezen en visualiseren in R
+
+### A. visualiseer relatie tussen griep en levensverwachting
+```{r joined, include=TRUE}
+joined_data <- read_csv("data/joined_data.csv")
+
+# Bereken de correlatie (gebruik alleen rijen zonder NA's)
+correlatie <- cor(joined_data$mean_flu, joined_data$life_expectancy, use = "complete.obs")
+
+# Maak een tekst voor in de titel
+cor_text <- ifelse(correlatie > 0, "positieve", "negatieve")
+
+ggplot(joined_data, aes(x = mean_flu, y = life_expectancy)) +
+  geom_point(alpha = 0.7) +
+  labs(
+    title = paste0("Relatie tussen griep en levensverwachting (", cor_text, " correlatie = ", round(correlatie, 2), ")"),
+    x = "Gemiddelde griepratio",
+    y = "Levensverwachting"
+  ) +
+  theme_minimal()
+```
+
+
+### B. Lijngrafiek over tijd per land
+__Doel__: Ontwikkeling van bijvoorbeeld dengue of flu per land over de jaren.
+
+```{r lijnen, inculde=TRUE}
+
+joined_data %>%
+  filter(!is.na(mean_dengue)) %>%
+  ggplot(aes(x = year, y = mean_dengue, color = country)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  labs(
+    title = "Dengue over tijd per land",
+    x = "Jaar",
+    y = "Gemiddelde dengue-incidentie"
+  ) +
+  theme_minimal()
+
+```
+
+
+### C. Choropleth map (wereldkaart)
+__Doel__: Visueel geografisch overzicht van ziektelast of GDP.
+
+```{r mappp, include=TRUE}
+
+world <- ne_countries(scale = "medium", returnclass = "sf")
+
+map_data <- left_join(world, joined_data, by = c("name" = "country"))
+
+# Bereken de centroiden van de landen voor de labels
+map_data_centroids <- st_centroid(map_data)
+
+ggplot(map_data) +
+  geom_sf(aes(fill = mean_dengue)) +
+  geom_text(data = map_data_centroids, 
+            aes(x = st_coordinates(geometry)[,1], y = st_coordinates(geometry)[,2], label = name),
+            size = 2, color = "black", check_overlap = TRUE) +
+  labs(title = "Wereldkaart van dengue-incidentie",
+       fill = "Dengue") +
+  theme_minimal()
+
+```
+
+
+
+

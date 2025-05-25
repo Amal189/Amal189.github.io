@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Samenvatting in tabelvorm | _main.knit</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Samenvatting in tabelvorm | _main.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Samenvatting in tabelvorm | _main.knit" />
+  
+  
+  
+
+<meta name="author" content="Jasmijnbloem" />
+
+
+<meta name="date" content="2025-05-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="reproduceerbare-analyse-2.html"/>
+<link rel="next" href="structured-query-language.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/core-js-2.5.3/shim.min.js"></script>
+<script src="libs/react-18.2.0/react.min.js"></script>
+<script src="libs/react-18.2.0/react-dom.min.js"></script>
+<script src="libs/reactwidget-2.0.0/react-tools.js"></script>
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/reactable-0.4.4/reactable.css" rel="stylesheet" />
+<script src="libs/reactable-binding-0.4.4/reactable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welkom</a></li>
+<li class="chapter" data-level="2" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html"><i class="fa fa-check"></i><b>2</b> Curriculum Vitae</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html#curriculum-vitae-nederlands"><i class="fa fa-check"></i><b>2.1</b> Curriculum Vitae (Nederlands)</a></li>
+<li class="chapter" data-level="2.2" data-path="curriculum-vitae.html"><a href="curriculum-vitae.html#curriculum-vitae-english-version"><i class="fa fa-check"></i><b>2.2</b> Curriculum Vitae (English Version)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html"><i class="fa fa-check"></i><b>3</b> Vooruikijken: Massaspectrometrie</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#toekomstbeeld-en-motivatie"><i class="fa fa-check"></i><b>3.1</b> 1. Toekomstbeeld en motivatie</a></li>
+<li class="chapter" data-level="3.2" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#planning"><i class="fa fa-check"></i><b>3.2</b> 2. Planning</a></li>
+<li class="chapter" data-level="3.3" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#inleiding"><i class="fa fa-check"></i><b>3.3</b> 3. Inleiding</a></li>
+<li class="chapter" data-level="3.4" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#hoe-ziet-het-systeem-eruit"><i class="fa fa-check"></i><b>3.4</b> 4. Hoe ziet het systeem eruit?</a></li>
+<li class="chapter" data-level="3.5" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#termen-in-de-massaspectrometrie"><i class="fa fa-check"></i><b>3.5</b> Termen in de massaspectrometrie</a></li>
+<li class="chapter" data-level="3.6" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#tools-en-packages"><i class="fa fa-check"></i><b>3.6</b> Tools en packages</a></li>
+<li class="chapter" data-level="3.7" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#uitwerking-met-msdata"><i class="fa fa-check"></i><b>3.7</b> 4. Uitwerking met msdata</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#introductie-bestandsformaat-en-voorbeelddata"><i class="fa fa-check"></i><b>3.7.1</b> Introductie bestandsformaat en voorbeelddata</a></li>
+<li class="chapter" data-level="3.7.2" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#hoe-ik-de-data-inlees"><i class="fa fa-check"></i><b>3.7.2</b> Hoe ik de data inlees</a></li>
+<li class="chapter" data-level="3.7.3" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#verkennen-van-spectra"><i class="fa fa-check"></i><b>3.7.3</b> Verkennen van spectra</a></li>
+<li class="chapter" data-level="3.7.4" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#plotten-van-chromatogram"><i class="fa fa-check"></i><b>3.7.4</b> Plotten van chromatogram</a></li>
+<li class="chapter" data-level="3.7.5" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#filteren-op-retentietijd-en-ms-level"><i class="fa fa-check"></i><b>3.7.5</b> Filteren op retentietijd en MS-level</a></li>
+<li class="chapter" data-level="3.7.6" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#gemiddeld-spectrum-handmatig-berekenen-en-plotten"><i class="fa fa-check"></i><b>3.7.6</b> Gemiddeld spectrum handmatig berekenen en plotten</a></li>
+<li class="chapter" data-level="3.7.7" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#pca-op-voorbeelddata"><i class="fa fa-check"></i><b>3.7.7</b> PCA op voorbeelddata</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="vooruikijken-massaspectrometrie.html"><a href="vooruikijken-massaspectrometrie.html#bronnen"><i class="fa fa-check"></i><b>3.8</b> Bronnen</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="guerilla-analytics.html"><a href="guerilla-analytics.html"><i class="fa fa-check"></i><b>4</b> Guerilla analytics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="guerilla-analytics.html"><a href="guerilla-analytics.html#daur2_rnaseq"><i class="fa fa-check"></i><b>4.1</b> DAUR2_RNAseq</a></li>
+<li class="chapter" data-level="4.2" data-path="guerilla-analytics.html"><a href="guerilla-analytics.html#portfolio-van-jasmijnbloem"><i class="fa fa-check"></i><b>4.2</b> Portfolio van Jasmijnbloem</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html"><i class="fa fa-check"></i><b>5</b> Reproduceerbare Analyse 1</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#c.elegans-toxiciteitsexperiment"><i class="fa fa-check"></i><b>5.1</b> C.elegans toxiciteitsexperiment</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-1-data-opslaan-en-inlezen"><i class="fa fa-check"></i><b>5.1.1</b> Stap 1: Data opslaan en inlezen</a></li>
+<li class="chapter" data-level="5.1.2" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-2-inspecteren-van-de-datatypes"><i class="fa fa-check"></i><b>5.1.2</b> Stap 2: Inspecteren van de datatypes</a></li>
+<li class="chapter" data-level="5.1.3" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-3-datatype-corrigeren"><i class="fa fa-check"></i><b>5.1.3</b> Stap 3: Datatype corrigeren</a></li>
+<li class="chapter" data-level="5.1.4" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-4-scatter-plot-maken"><i class="fa fa-check"></i><b>5.1.4</b> Stap 4: Scatter plot maken</a></li>
+<li class="chapter" data-level="5.1.5" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-5-normalizeren-van-de-data-voor-de-negatieve-controle"><i class="fa fa-check"></i><b>5.1.5</b> Stap 5: Normalizeren van de data voor de negatieve controle</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stappenplan-voor-dose-response-analyse"><i class="fa fa-check"></i><b>5.2</b> Stappenplan voor dose-response analyse</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-1-installeer-en-laad-het-drc-pakket"><i class="fa fa-check"></i><b>5.2.1</b> Stap 1: Installeer en laad het drc-pakket</a></li>
+<li class="chapter" data-level="5.2.2" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-2-filter-de-data-verwijder-nas-en-incomplete-observaties"><i class="fa fa-check"></i><b>5.2.2</b> Stap 2: Filter de data (verwijder NA’s en incomplete observaties)</a></li>
+<li class="chapter" data-level="5.2.3" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-3-dosis-respons-modellen-fitten"><i class="fa fa-check"></i><b>5.2.3</b> Stap 3: Dosis-respons modellen fitten</a></li>
+<li class="chapter" data-level="5.2.4" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-4-bepaal-de-ic50-waarden"><i class="fa fa-check"></i><b>5.2.4</b> Stap 4: Bepaal de IC50-waarden</a></li>
+<li class="chapter" data-level="5.2.5" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-5-overzichtstabel-van-ic50-waarden"><i class="fa fa-check"></i><b>5.2.5</b> Stap 5: Overzichtstabel van IC50-waarden</a></li>
+<li class="chapter" data-level="5.2.6" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-6-dosis-respons-curves-combineren-in-één-figuur"><i class="fa fa-check"></i><b>5.2.6</b> Stap 6: Dosis-respons curves combineren in één figuur</a></li>
+<li class="chapter" data-level="5.2.7" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#stap-7-eén-curve-per-stof-optioneel"><i class="fa fa-check"></i><b>5.2.7</b> Stap 7: Eén curve per stof (optioneel)</a></li>
+<li class="chapter" data-level="5.2.8" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#conclusie"><i class="fa fa-check"></i><b>5.2.8</b> conclusie</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#wetenschappelijke-referenties"><i class="fa fa-check"></i><b>5.3</b> Wetenschappelijke Referenties</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#ethanol-en-effecten-op-c.-elegans-voortplanting"><i class="fa fa-check"></i><b>5.3.1</b> 1. <strong>Ethanol en effecten op <em>C. elegans</em> voortplanting</strong>:</a></li>
+<li class="chapter" data-level="5.3.2" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#decaan-en-naphthaleen-als-toxische-stoffen"><i class="fa fa-check"></i><b>5.3.2</b> 2. <strong>Decaan en naphthaleen als toxische stoffen</strong>:</a></li>
+<li class="chapter" data-level="5.3.3" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#dosis-responscurves-en-ic50-waarde-bepaling"><i class="fa fa-check"></i><b>5.3.3</b> 3. <strong>Dosis-responscurves en IC50-waarde bepaling</strong>:</a></li>
+<li class="chapter" data-level="5.3.4" data-path="reproduceerbare-analyse-1.html"><a href="reproduceerbare-analyse-1.html#s-medium-als-controle-in-biologische-experimenten"><i class="fa fa-check"></i><b>5.3.4</b> 4. <strong>S-medium als controle in biologische experimenten</strong>:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="reproduceerbare-analyse-2.html"><a href="reproduceerbare-analyse-2.html"><i class="fa fa-check"></i><b>6</b> Reproduceerbare Analyse 2</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="reproduceerbare-analyse-2.html"><a href="reproduceerbare-analyse-2.html#artikel-beoordelen-op-reproduceerbaarheid"><i class="fa fa-check"></i><b>6.1</b> Artikel beoordelen op reproduceerbaarheid</a></li>
+<li class="chapter" data-level="6.2" data-path="reproduceerbare-analyse-2.html"><a href="reproduceerbare-analyse-2.html#artikelinformatie"><i class="fa fa-check"></i><b>6.2</b> Artikelinformatie</a></li>
+<li class="chapter" data-level="6.3" data-path="reproduceerbare-analyse-2.html"><a href="reproduceerbare-analyse-2.html#onderzoeksvraag-en-doel-van-het-onderzoek"><i class="fa fa-check"></i><b>6.3</b> Onderzoeksvraag en doel van het onderzoek</a></li>
+<li class="chapter" data-level="6.4" data-path="reproduceerbare-analyse-2.html"><a href="reproduceerbare-analyse-2.html#korte-samenvatting-van-methode-en-resultaten"><i class="fa fa-check"></i><b>6.4</b> Korte samenvatting van methode en resultaten</a></li>
+<li class="chapter" data-level="6.5" data-path="reproduceerbare-analyse-2.html"><a href="reproduceerbare-analyse-2.html#beoordeling-reproduceerbaarheid-volgens-criteria"><i class="fa fa-check"></i><b>6.5</b> Beoordeling reproduceerbaarheid volgens criteria</a></li>
+<li class="chapter" data-level="6.6" data-path="reproduceerbare-analyse-2.html"><a href="reproduceerbare-analyse-2.html#study-purpose-onderzoeksdoel"><i class="fa fa-check"></i><b>6.6</b> 1. Study Purpose (Onderzoeksdoel)</a></li>
+<li class="chapter" data-level="6.7" data-path="reproduceerbare-analyse-2.html"><a href="reproduceerbare-analyse-2.html#data-availability-statement-toegankelijkheid-van-data"><i class="fa fa-check"></i><b>6.7</b> 2. Data Availability Statement (Toegankelijkheid van data)</a></li>
+<li class="chapter" data-level="6.8" data-path="reproduceerbare-analyse-2.html"><a href="reproduceerbare-analyse-2.html#data-location-locatie-van-data"><i class="fa fa-check"></i><b>6.8</b> 3. Data Location (Locatie van data)</a></li>
+<li class="chapter" data-level="6.9" data-path="reproduceerbare-analyse-2.html"><a href="reproduceerbare-analyse-2.html#study-location-plaats-van-het-onderzoek"><i class="fa fa-check"></i><b>6.9</b> 4. Study Location (Plaats van het onderzoek)</a></li>
+<li class="chapter" data-level="6.10" data-path="reproduceerbare-analyse-2.html"><a href="reproduceerbare-analyse-2.html#author-review-contactgegevens-van-auteurs"><i class="fa fa-check"></i><b>6.10</b> 5. Author Review (Contactgegevens van auteurs)</a></li>
+<li class="chapter" data-level="6.11" data-path="reproduceerbare-analyse-2.html"><a href="reproduceerbare-analyse-2.html#ethics-statement-ethische-verklaring"><i class="fa fa-check"></i><b>6.11</b> 6. Ethics Statement (Ethische verklaring)</a></li>
+<li class="chapter" data-level="6.12" data-path="reproduceerbare-analyse-2.html"><a href="reproduceerbare-analyse-2.html#funding-statement-financiering"><i class="fa fa-check"></i><b>6.12</b> 7. Funding Statement (Financiering)</a></li>
+<li class="chapter" data-level="6.13" data-path="reproduceerbare-analyse-2.html"><a href="reproduceerbare-analyse-2.html#code-availability-beschikbaarheid-van-code"><i class="fa fa-check"></i><b>6.13</b> 8. Code Availability (Beschikbaarheid van code)</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="samenvatting-in-tabelvorm.html"><a href="samenvatting-in-tabelvorm.html"><i class="fa fa-check"></i><b>7</b> Samenvatting in tabelvorm</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="samenvatting-in-tabelvorm.html"><a href="samenvatting-in-tabelvorm.html#analyse-van-de-gedeelde-r-code"><i class="fa fa-check"></i><b>7.1</b> Analyse van de gedeelde R code</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="samenvatting-in-tabelvorm.html"><a href="samenvatting-in-tabelvorm.html#beschrijving-van-de-r-code"><i class="fa fa-check"></i><b>7.1.1</b> Beschrijving van de R code</a></li>
+<li class="chapter" data-level="7.1.2" data-path="samenvatting-in-tabelvorm.html"><a href="samenvatting-in-tabelvorm.html#leesbaarheid-van-de-code"><i class="fa fa-check"></i><b>7.1.2</b> Leesbaarheid van de code</a></li>
+<li class="chapter" data-level="7.1.3" data-path="samenvatting-in-tabelvorm.html"><a href="samenvatting-in-tabelvorm.html#reproduceerbaarheid-van-de-code"><i class="fa fa-check"></i><b>7.1.3</b> Reproduceerbaarheid van de code</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="samenvatting-in-tabelvorm.html"><a href="samenvatting-in-tabelvorm.html#conclusie-1"><i class="fa fa-check"></i><b>7.2</b> Conclusie</a></li>
+<li class="chapter" data-level="7.3" data-path="samenvatting-in-tabelvorm.html"><a href="samenvatting-in-tabelvorm.html#reflectie"><i class="fa fa-check"></i><b>7.3</b> Reflectie</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="structured-query-language.html"><a href="structured-query-language.html"><i class="fa fa-check"></i><b>8</b> Structured Query Language</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="structured-query-language.html"><a href="structured-query-language.html#stap-1-laad-de-libraries"><i class="fa fa-check"></i><b>8.1</b> Stap 1: Laad de libraries</a></li>
+<li class="chapter" data-level="8.2" data-path="structured-query-language.html"><a href="structured-query-language.html#stap-2-data-inlezen-in-r"><i class="fa fa-check"></i><b>8.2</b> Stap 2: Data inlezen in R</a></li>
+<li class="chapter" data-level="8.3" data-path="structured-query-language.html"><a href="structured-query-language.html#stap-3-data-controleren."><i class="fa fa-check"></i><b>8.3</b> Stap 3: Data controleren.</a></li>
+<li class="chapter" data-level="8.4" data-path="structured-query-language.html"><a href="structured-query-language.html#stap-4-zet-de-data-in-tidy-format"><i class="fa fa-check"></i><b>8.4</b> Stap 4: Zet de data in tidy format</a></li>
+<li class="chapter" data-level="8.5" data-path="structured-query-language.html"><a href="structured-query-language.html#stap-5-harmoniseer-landenamen"><i class="fa fa-check"></i><b>8.5</b> Stap 5: Harmoniseer landenamen</a></li>
+<li class="chapter" data-level="8.6" data-path="structured-query-language.html"><a href="structured-query-language.html#stap-6-voeg-datasets-samen"><i class="fa fa-check"></i><b>8.6</b> Stap 6: Voeg datasets samen</a></li>
+<li class="chapter" data-level="8.7" data-path="structured-query-language.html"><a href="structured-query-language.html#stap-7-zet-data-in-een-sql-database"><i class="fa fa-check"></i><b>8.7</b> Stap 7: Zet data in een SQL-database</a></li>
+<li class="chapter" data-level="8.8" data-path="structured-query-language.html"><a href="structured-query-language.html#stap-8-importeer-de-csv-bestanden-in-dbeaver"><i class="fa fa-check"></i><b>8.8</b> Stap 8: Importeer de CSV-bestanden in DBeaver</a></li>
+<li class="chapter" data-level="8.9" data-path="structured-query-language.html"><a href="structured-query-language.html#stap-9-inspecteer-de-tabellen-met-sql-queries"><i class="fa fa-check"></i><b>8.9</b> Stap 9: Inspecteer de tabellen met SQL queries</a></li>
+<li class="chapter" data-level="8.10" data-path="structured-query-language.html"><a href="structured-query-language.html#stap-8-voer-een-join-uit-met-sql"><i class="fa fa-check"></i><b>8.10</b> Stap 8: Voer een join uit met SQL</a></li>
+<li class="chapter" data-level="8.11" data-path="structured-query-language.html"><a href="structured-query-language.html#stap-8-inlezen-en-visualiseren-in-r"><i class="fa fa-check"></i><b>8.11</b> Stap 8: Inlezen en visualiseren in R</a>
+<ul>
+<li class="chapter" data-level="8.11.1" data-path="structured-query-language.html"><a href="structured-query-language.html#a.-visualiseer-relatie-tussen-griep-en-levensverwachting"><i class="fa fa-check"></i><b>8.11.1</b> A. visualiseer relatie tussen griep en levensverwachting</a></li>
+<li class="chapter" data-level="8.11.2" data-path="structured-query-language.html"><a href="structured-query-language.html#b.-lijngrafiek-over-tijd-per-land"><i class="fa fa-check"></i><b>8.11.2</b> B. Lijngrafiek over tijd per land</a></li>
+<li class="chapter" data-level="8.11.3" data-path="structured-query-language.html"><a href="structured-query-language.html#c.-choropleth-map-wereldkaart"><i class="fa fa-check"></i><b>8.11.3</b> C. Choropleth map (wereldkaart)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="r-package.html"><a href="r-package.html"><i class="fa fa-check"></i><b>9</b> R package</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="r-package.html"><a href="r-package.html#documentatie-van-mijn-r-package-ministate"><i class="fa fa-check"></i><b>9.1</b> Documentatie van mijn R package: ministate</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="r-package.html"><a href="r-package.html#inleiding-1"><i class="fa fa-check"></i><b>9.1.1</b> Inleiding</a></li>
+<li class="chapter" data-level="9.1.2" data-path="r-package.html"><a href="r-package.html#opzetten-van-het-project"><i class="fa fa-check"></i><b>9.1.2</b> 1. Opzetten van het project</a></li>
+<li class="chapter" data-level="9.1.3" data-path="r-package.html"><a href="r-package.html#toevoegen-van-functies"><i class="fa fa-check"></i><b>9.1.3</b> 2. Toevoegen van functies</a></li>
+<li class="chapter" data-level="9.1.4" data-path="r-package.html"><a href="r-package.html#testen-van-functies"><i class="fa fa-check"></i><b>9.1.4</b> 3. Testen van functies</a></li>
+<li class="chapter" data-level="9.1.5" data-path="r-package.html"><a href="r-package.html#vignette-aanmaken"><i class="fa fa-check"></i><b>9.1.5</b> 4. Vignette aanmaken</a></li>
+<li class="chapter" data-level="9.1.6" data-path="r-package.html"><a href="r-package.html#description-bestand"><i class="fa fa-check"></i><b>9.1.6</b> 5. DESCRIPTION bestand</a></li>
+<li class="chapter" data-level="9.1.7" data-path="r-package.html"><a href="r-package.html#package-bouwen-en-checken"><i class="fa fa-check"></i><b>9.1.7</b> 6. Package bouwen en checken</a></li>
+<li class="chapter" data-level="9.1.8" data-path="r-package.html"><a href="r-package.html#github-koppeling"><i class="fa fa-check"></i><b>9.1.8</b> 7. GitHub koppeling</a></li>
+<li class="chapter" data-level="9.1.9" data-path="r-package.html"><a href="r-package.html#conclusie-2"><i class="fa fa-check"></i><b>9.1.9</b> Conclusie</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="r-package.html"><a href="r-package.html#voorbeeld-voor-het-gebruiken-van-de-package"><i class="fa fa-check"></i><b>9.2</b> Voorbeeld voor het gebruiken van de package</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html"><i class="fa fa-check"></i><b>10</b> Geparameteriseerd COVID-19 Europa rapport</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#geparameteriseerd-data-verwerken"><i class="fa fa-check"></i><b>10.1</b> Geparameteriseerd data verwerken</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#stap-1-laad-de-benodigde-libraries"><i class="fa fa-check"></i><b>10.1.1</b> Stap 1: Laad de benodigde libraries</a></li>
+<li class="chapter" data-level="10.1.2" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#stap-2-download-en-verwerk-de-data"><i class="fa fa-check"></i><b>10.1.2</b> Stap 2: Download en verwerk de data</a></li>
+<li class="chapter" data-level="10.1.3" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#stap-3-foutafhandeling"><i class="fa fa-check"></i><b>10.1.3</b> Stap 3: Foutafhandeling</a></li>
+<li class="chapter" data-level="10.1.4" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#stap-4-filter-de-data"><i class="fa fa-check"></i><b>10.1.4</b> Stap 4: Filter de data</a></li>
+<li class="chapter" data-level="10.1.5" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#stap-5-het-analyseren-van-de-data"><i class="fa fa-check"></i><b>10.1.5</b> Stap 5: Het analyseren van de data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#interactieve-quiz-wat-weet-je-van-de-covid-data"><i class="fa fa-check"></i><b>10.2</b> 🧠 Interactieve Quiz: Wat weet je van de COVID-data?</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-1-hoeveel-dagen-zijn-er-met-gegevens-in-deze-selectie"><i class="fa fa-check"></i><b>10.2.1</b> Vraag 1: Hoeveel dagen zijn er met gegevens in deze selectie?</a></li>
+<li class="chapter" data-level="10.2.2" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-2-hoeveel-besmettingen-zijn-er-in-totaal-gemeld"><i class="fa fa-check"></i><b>10.2.2</b> Vraag 2: Hoeveel besmettingen zijn er in totaal gemeld?</a></li>
+<li class="chapter" data-level="10.2.3" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-3-wat-was-het-hoogste-aantal-besmettingen-op-één-dag"><i class="fa fa-check"></i><b>10.2.3</b> Vraag 3: Wat was het hoogste aantal besmettingen op één dag?</a></li>
+<li class="chapter" data-level="10.2.4" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-4-hoe-ziet-het-verloop-van-besmettingen-eruit"><i class="fa fa-check"></i><b>10.2.4</b> Vraag 4: Hoe ziet het verloop van besmettingen eruit?</a></li>
+<li class="chapter" data-level="10.2.5" data-path="geparameteriseerd-covid-19-europa-rapport.html"><a href="geparameteriseerd-covid-19-europa-rapport.html#vraag-5-hoe-ziet-het-verloop-van-sterfgevallen-eruit"><i class="fa fa-check"></i><b>10.2.5</b> Vraag 5: Hoe ziet het verloop van sterfgevallen eruit?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="project-introductie.html"><a href="project-introductie.html"><i class="fa fa-check"></i><b>11</b> Project introductie</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="project-introductie.html"><a href="project-introductie.html#minion-sequencing"><i class="fa fa-check"></i><b>11.1</b> minION sequencing</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="referenties.html"><a href="referenties.html"><i class="fa fa-check"></i><b>12</b> Referenties</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="samenvatting-in-tabelvorm" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> Samenvatting in tabelvorm<a href="samenvatting-in-tabelvorm.html#samenvatting-in-tabelvorm" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<table>
+<caption><span id="tab:unnamed-chunk-1">Table 7.1: </span>Beoordeling reproduceerbaarheid per criterium</caption>
+<colgroup>
+<col width="35%" />
+<col width="8%" />
+<col width="55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Criteria</th>
+<th align="center">Score</th>
+<th align="left">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Study Purpose</td>
+<td align="center">5</td>
+<td align="left">Doel helder en expliciet omschreven</td>
+</tr>
+<tr class="even">
+<td align="left">Data Availability Statement</td>
+<td align="center">5</td>
+<td align="left">Data openbaar beschikbaar verklaard</td>
+</tr>
+<tr class="odd">
+<td align="left">Data Location</td>
+<td align="center">5</td>
+<td align="left">Data makkelijk te vinden via GitHub</td>
+</tr>
+<tr class="even">
+<td align="left">Study Location</td>
+<td align="center">5</td>
+<td align="left">Locatie onderzoek duidelijk vermeld</td>
+</tr>
+<tr class="odd">
+<td align="left">Author Review</td>
+<td align="center">5</td>
+<td align="left">Contactgegevens professioneel vermeld</td>
+</tr>
+<tr class="even">
+<td align="left">Ethics Statement</td>
+<td align="center">5</td>
+<td align="left">Ethische verklaring aanwezig</td>
+</tr>
+<tr class="odd">
+<td align="left">Funding Statement</td>
+<td align="center">5</td>
+<td align="left">Financiering transparant vermeld</td>
+</tr>
+<tr class="even">
+<td align="left">Code Availability</td>
+<td align="center">4</td>
+<td align="left">Code beschikbaar en redelijk gedocumenteerd</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col width="18%" />
+<col width="18%" />
+<col width="63%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Criteria</th>
+<th>Beoordeling</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Study Purpose</td>
+<td>Ja</td>
+<td>Het doel van het onderzoek is helder omschreven in de inleiding.</td>
+</tr>
+<tr class="even">
+<td>Data Availability Statement</td>
+<td>Ja</td>
+<td>Er is een aparte sectie over data beschikbaarheid.</td>
+</tr>
+<tr class="odd">
+<td>Data Location</td>
+<td>Zenodo</td>
+<td>Data is te vinden via een Zenodo link in het artikel.</td>
+</tr>
+<tr class="even">
+<td>Study Location</td>
+<td>Ja</td>
+<td>Studie is uitgevoerd in het Atlantisch Woud, Brazilië.</td>
+</tr>
+<tr class="odd">
+<td>Author Review</td>
+<td>Ja</td>
+<td>Professionele contactgegevens zijn opgenomen in het artikel.</td>
+</tr>
+<tr class="even">
+<td>Ethics Statement</td>
+<td>Nee</td>
+<td>Niet van toepassing gezien de aard van het onderzoek.</td>
+</tr>
+<tr class="odd">
+<td>Funding Statement</td>
+<td>Ja</td>
+<td>Financiering wordt vermeld.</td>
+</tr>
+<tr class="even">
+<td>Code Availability</td>
+<td>Ja</td>
+<td>Code is beschikbaar via GitHub repository (<a href="https://github.com/gesistsa/rang" class="uri">https://github.com/gesistsa/rang</a>).</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div id="analyse-van-de-gedeelde-r-code" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Analyse van de gedeelde R code<a href="samenvatting-in-tabelvorm.html#analyse-van-de-gedeelde-r-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="beschrijving-van-de-r-code" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Beschrijving van de R code<a href="samenvatting-in-tabelvorm.html#beschrijving-van-de-r-code" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>De code bestaat uit scripts die:</p>
+<ul>
+<li>De datasets inladen en controleren;</li>
+<li>Statistische analyses uitvoeren, voornamelijk logistische regressies;</li>
+<li>Grafieken genereren om de relatie tussen verspreidingsgrootte en uitstervingsrisico te visualiseren;</li>
+<li>Resultaten exporteren.</li>
+</ul>
+<p>De scripts zijn logisch gestructureerd en bevatten commentaarregels die de hoofdlijnen uitleggen.</p>
+<hr />
+</div>
+<div id="leesbaarheid-van-de-code" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Leesbaarheid van de code<a href="samenvatting-in-tabelvorm.html#leesbaarheid-van-de-code" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ik beoordeel de leesbaarheid van de code met een <strong>4 uit 5</strong>. De code is helder opgebouwd, gebruikt begrijpelijke functienamen en commentaar, maar mist soms diepgaande toelichting bij complexe stappen die voor beginners minder toegankelijk zijn.</p>
+<hr />
+</div>
+<div id="reproduceerbaarheid-van-de-code" class="section level3 hasAnchor" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> Reproduceerbaarheid van de code<a href="samenvatting-in-tabelvorm.html#reproduceerbaarheid-van-de-code" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ik heb de repository gedownload en een nieuw R-project aangemaakt. Na het installeren van benodigde packages en aanpassen van bestandslocaties kon ik de code grotendeels uitvoeren. Eén figuur (bijv. Fig 2 uit het artikel) kon ik succesvol reproduceren met de originele data.</p>
+<p>Enkele kleine fouten zoals padnamen moesten aangepast worden, maar verder werkte de code zonder grote problemen.</p>
+<p><strong>Reproduceerbaarheid score:</strong> 4 uit 5.</p>
+<hr />
+</div>
+</div>
+<div id="conclusie-1" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Conclusie<a href="samenvatting-in-tabelvorm.html#conclusie-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Het artikel voldoet aan de belangrijkste reproduceerbaarheidscriteria. Data en code zijn publiek toegankelijk, de analyse is uitvoerbaar en goed gedocumenteerd. Kleine verbeteringen in documentatie en installatie-instructies kunnen het reproduceerproces nog soepeler maken.</p>
+<p>Dit maakt het onderzoek grotendeels reproduceerbaar en een goed voorbeeld van open science.</p>
+<hr />
+</div>
+<div id="reflectie" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Reflectie<a href="samenvatting-in-tabelvorm.html#reflectie" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Door zelf de analyse te reproduceren werd duidelijk dat transparantie en een goede projectstructuur essentieel zijn voor herhaalbaarheid. De gedeelde code is een solide basis, maar extra uitleg en handleidingen zouden het hergebruik voor bredere doelgroepen verbeteren.</p>
+<hr />
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="reproduceerbare-analyse-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="structured-query-language.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

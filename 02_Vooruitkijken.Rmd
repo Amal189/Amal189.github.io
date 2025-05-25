@@ -1,0 +1,95 @@
+---
+title: "Vooruitkijken"
+author: "Jasmijnbloem"
+date: "2025-04-16"
+output: html_document
+---
+
+
+# Vooruikijken: Massaspectrometrie
+
+Deze opdracht is onderdeel van de cursus *Workflows* en richt zich op het leren van een nieuwe **Data Science for Biology** skill: het analyseren van **massaspectrometriedata in R**. De keuze voor deze skill is gebaseerd op het toekomstbeeld waarin moleculair onderzoek gecombineerd wordt met bioinformatica.
+
+---
+
+## 1. Toekomstbeeld en motivatie
+
+__Toekomstvisie__
+
+Over een tot twee jaar mijn doel is om werkzaam te zijn in een onderzoeksomgeving zoals een academisch ziekenhuis, een universiteit of een biotechnologisch bedrijf. Het liefst in een rol waarin laboratoriumonderzoek wordt gecombineerd met bioinformatica, bijvoorbeeld op het gebied van eiwitonderzoek of medicijnontwikkeling.
+
+__Huidige vaardigheden__
+
+- Praktische ervaring met laboratoriumtechnieken zoals eiwitanalyse, sequencing, PCR
+- Data-analyse met R, GitHub en SQL
+- Basiskennis van bioinformatica en datavisualisatie
+
+
+__Nieuwe skill om te leren__
+
+Om dichter bij het toekomstdoel te komen, wordt gekozen voor het leren analyseren van massaspectrometriedata. Deze analysetechniek is belangrijk in proteomics en wordt gebruikt voor eiwitidentificatie en -kwantificatie. Door dit te koppelen aan R wordt geleerd hoe ruwe data wordt omgezet naar bruikbare biologische informatie.
+
+**Gekozen skill**:  
+*Analyseren van massaspectrometriedata in R*
+
+---
+
+
+
+## 2. Planning
+
+| Datum       | Activiteit                                                  | Tijd (uren) | Toelichting                                               |
+|-------------|-------------------------------------------------------------|-------------|------------------------------------------------------------|
+| 05 mei      | Introductie: wat is massaspectrometrie?                     | 2           | Begrijpen van het basisprincipe, zoeken van uitlegvideo's |
+| 06 mei      | Wat kun je analyseren met massaspectrometrie?              | 2           | Uitleg over toepassingen in eiwitonderzoek                 |
+| 07 mei      | Installeren van R-packages (`MSnbase`, `Spectra`)           | 2           | R en Bioconductor gereedmaken                             |
+| 08 mei      | Tutorial volgen: voorbeeldanalyse bekijken                   | 3           | Gebruik maken van online tutorials                        |
+| 09 mei      | Begrippen oefenen: spectra, intensiteit, massa/charge        | 1           | Leren herkennen in voorbeelddata                          |
+| 10 mei      | Voorbeelddataset downloaden (.mzML bestand)                  | 2           | Van PRIDE database of Bioconductor                        |
+| 11 mei      | Data inlezen in R                                           | 2           | Gebruik maken van `MSnbase::readMSData()`                |
+| 12 mei      | Eerste grafiek maken (bijv. chromatogram of spectrum)       | 3           | Visualisatie oefenen met 1 sample                         |
+| 13 mei      | Meer samples toevoegen, data filteren of normaliseren       | 3           | Werken aan kwaliteit van de data                          |
+| 14 mei      | Eenvoudige analyse uitvoeren                                | 3           | Bijvoorbeeld gemiddelde intensiteit per sample vergelijken|
+| 15 mei      | Resultaten visualiseren (boxplot, PCA of heatmap)           | 3           | Overzicht maken van verschillen                           |
+| 16 mei      | Alles verwerken in RMarkdown                                | 2           | Duidelijk verslag maken van je leerproces                 |
+| 17 mei      | Uploaden naar GitHub                                        | 2           | Resultaat delen als bewijs                                |
+
+**Totaal:** 32 uur
+
+
+
+---
+
+## 3. Uitwerking (voorbereiding)
+
+Voor de analyse zullen Bioconductor-tools gebruikt worden:
+
+- [`MSnbase`](https://bioconductor.org/packages/release/bioc/html/MSnbase.html)
+- [`Spectra`](https://bioconductor.org/packages/release/bioc/html/Spectra.html)
+
+### Data
+
+Publieke massaspectrometriedata wordt gebruikt, bijvoorbeeld uit de **PRIDE Archive**, in `.mzML` formaat.
+
+### Analyseplan
+
+- Importeren van MS-data in R  
+- Visualiseren van spectra en kwaliteitscontrole  
+- Normalisatie en filtering van data  
+- Vergelijken van experimentele condities  
+- Visualisaties maken zoals boxplots, PCA en heatmaps
+
+### Bewijs van verworven kennis
+
+- Zelfgeschreven analysecode in een `.Rmd` bestand  
+- Toepassing op een nieuwe dataset  
+- Upload van code en verslag naar een GitHub-repository  
+- Reflectie op het leerproces
+
+---
+
+## Bronnen
+
+- [MSnbase tutorial – Bioconductor](https://bioconductor.org/packages/release/bioc/vignettes/MSnbase/inst/doc/MSnbase-demo.html)  
+- [Spectra package](https://bioconductor.org/packages/release/bioc/html/Spectra.html)  
+- PRIDE database: https://www.ebi.ac.uk/pride/

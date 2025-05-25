@@ -1,0 +1,25 @@
+---
+title: ""
+author: "Jasmijnbloem"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# Project introductie
+
+## minION sequencing
+
+RNA-sequencing is een techniek waarmee onderzoekers kunnen meten welke genen actief zijn in een cel. De MinION-sequencer van Oxford Nanopore Technologies is een nieuwe generatie sequencingtechnologie die het mogelijk maakt om lange RNA-fragmenten in één keer te lezen [@Jain2016]. In dit project wordt RNA-sequencing data van MCF7-borstkankercellen geanalyseerd. Het doel is om de kwaliteit van de data te beoordelen en om te onderzoeken of deze geschikt is voor het analyseren van genexpressie.
+
+Traditionele RNA-sequencing methoden, zoals die van Illumina, produceren korte reads die vaak onvoldoende informatie geven over volledige RNA-transcripten [@Wang2009]. Lange reads van de MinION maken het mogelijk om complete genvarianten te identificeren, wat nuttig is bij onderzoek naar alternatieve splicing en genexpressie [@Byrne2017]. Omdat de foutenmarge van de MinION hoger is dan bij short-read technologieën, is kwaliteitscontrole een belangrijke eerste stap [@DeCoster2018].
+
+Voor deze analyse wordt gebruikgemaakt van openbare data die eerder is gegenereerd door Chen et al. (2021), waarin RNA uit MCF7-cellen is gesekveneerd met de MinION [@Chen2021]. De workflow begint met kwaliteitscontrole van de ruwe sequencing data met behulp van NanoFilt en NanoPlot [@DeCoster2018]. Vervolgens worden de RNA-reads uitgelijnd op het humane genoom met Minimap2, een aligner die geschikt is voor lange reads en splicing-herkenning [@Li2018].
+
+Daarna wordt het expressieniveau van genen bepaald met behulp van Bambu, een tool die ontworpen is voor transcriptidentificatie en kwantificatie in long-read RNA-seq data [@Kaminow2021]. De differentiële genexpressie wordt geanalyseerd met DESeq2, een veelgebruikte methode binnen de bioinformatica [@Love2014].
+
+Tot slot worden de resultaten gevisualiseerd met PCA-plots, heatmaps en scatterplots. Deze visualisaties geven inzicht in verschillen in genexpressie en in de bruikbaarheid van lange-read sequencing data bij transcriptomics-onderzoek.
+
+![Figuur 1: Workflow voor RNA-seq data-analyse.                   *De onderstaande figuur toont een overzicht van een typische workflow voor de analyse van RNA-sequencing (RNA-seq) data, zoals uitgevoerd in dit project. Deze workflow is gebaseerd op het materiaal uit de cursus Data Science for Biology 1 (DSFB1).*](figs/GenExpressie.png)
+
+# Referenties
+
